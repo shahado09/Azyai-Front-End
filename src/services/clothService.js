@@ -11,4 +11,19 @@ try{
     console.log(error)}
 }
 
-export { getAllCloth };
+const createCloth = async (formData) => {
+  try {
+    const token = localStorage.getItem("token");
+
+    const response = await axios.post(BASE_URL, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response.data.createdcloth;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export { getAllCloth, createCloth };
