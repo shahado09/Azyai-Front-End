@@ -27,27 +27,61 @@ function ClothDetail(props) {
     }
   };
 
-  if (!id) return <h1>Loading...</h1>;
-  if (!cloth) return <h1>Loading...</h1>;
+  if (!id) return <h1 className="clothDetailLoading">Loading...</h1>;
+  if (!cloth) return <h1 className="clothDetailLoading">Loading...</h1>;
 
-  return (
-    <div>
-      <h1>{cloth.name}</h1>
-      <p>{cloth.description}</p>
-      <p>Category: {cloth.category}</p>
-      <p>Price: {cloth.price}</p>
+return (
+    <div className="clothDetailPage">
+      <h1 className="clothDetailTitle">{cloth.name}</h1>
 
-      {cloth.salePrice && <p>Sale Price: {cloth.salePrice}</p>}
+      <p className="clothDetailDescription">{cloth.description}</p>
 
-      <p>Stock: {cloth.stockQty}</p>
-      <p>Available: {cloth.isAvailable ? "Yes" : "No"}</p>
+      <div className="clothDetailInfo">
+        <p className="clothDetailLine">
+          <span className="clothDetailLabel">Category:</span>
+          <span className="clothDetailValue">{cloth.category}</span>
+        </p>
 
-      <p>Sizes: {Array.isArray(cloth.sizes) ? cloth.sizes.join(", ") : ""}</p>
+        <p className="clothDetailLine">
+          <span className="clothDetailLabel">Price:</span>
+          <span className="clothDetailValue">{cloth.price}</span>
+        </p>
 
-      <div>
-        <Link to={`/cloth/${id}/edit`}>Edit</Link>
-        <br />
-        <button onClick={handleDelete}>Delete</button>
+        {cloth.salePrice && (
+          <p className="clothDetailLine">
+            <span className="clothDetailLabel">Sale Price:</span>
+            <span className="clothDetailValue">{cloth.salePrice}</span>
+          </p>
+        )}
+
+        <p className="clothDetailLine">
+          <span className="clothDetailLabel">Stock:</span>
+          <span className="clothDetailValue">{cloth.stockQty}</span>
+        </p>
+
+        <p className="clothDetailLine">
+          <span className="clothDetailLabel">Available:</span>
+          <span className="clothDetailValue">
+            {cloth.isAvailable ? "Yes" : "No"}
+          </span>
+        </p>
+
+        <p className="clothDetailLine">
+          <span className="clothDetailLabel">Sizes:</span>
+          <span className="clothDetailValue">
+            {Array.isArray(cloth.sizes) ? cloth.sizes.join(", ") : ""}
+          </span>
+        </p>
+      </div>
+
+      <div className="clothDetailActions">
+        <Link className="clothDetailEditLink" to={`/cloth/${id}/edit`}>
+          Edit
+        </Link>
+
+        <button className="clothDetailDeleteButton" onClick={handleDelete}>
+          Delete
+        </button>
       </div>
     </div>
   );
