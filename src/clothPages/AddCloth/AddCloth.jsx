@@ -33,7 +33,7 @@ const ClothCreate = () => {
     if (checked) {
       setSelectedSizes((prev) => [...prev, value]);
     } else {
-      setSelectedSizes((prev) => prev.filter((s) => s !== value));
+      setSelectedSizes((prev) => prev.filter((selectedSize) => selectedSize !== value));
     }
   };
 
@@ -120,7 +120,11 @@ const ClothCreate = () => {
             />
             {size}
           </label>
+
         ))}
+        
+        <label htmlFor="images">Stock Quantity</label>
+        <input id="images" type="file" multiple onChange={handleChange} />
 
         <button type="submit">Create</button>
       </form>
