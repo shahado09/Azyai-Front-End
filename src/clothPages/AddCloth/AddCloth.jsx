@@ -124,7 +124,7 @@ const ClothCreate = () => {
 
         ))}
         
-        <label className="clothCreateLabel" htmlFor="images">Stock Quantity</label>
+        <label className="clothCreateLabel" htmlFor="images">Imges</label>
         <input  className="clothCreateFile" id="images" type="file" multiple onChange={handleChange} />
 
         <button className="clothCreateButton" type="submit">Create</button>

@@ -11,6 +11,7 @@ import { UserContext } from './contexts/UserContext';
 import ClothList from './clothPages/ClothList/ClothList';
 import AddCloth from './clothPages/AddCloth/AddCloth';
 import ClothDetail from './clothPages/ClothDetail/ClothDetail';
+import ClothEdit from "./clothPages/ClothEdit/ClothEdit";
 
 const App = () => {
   // Access the user object from UserContext
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/cloth" element={<ClothList />} />
         <Route path="/cloth/new" element={<AddCloth/>} />
         <Route path="/cloth/:id" element={<ClothDetail />} />
+        <Route path="/cloth/:id/edit" element={<ClothEdit />} />
       </Routes>
     </>
   );
