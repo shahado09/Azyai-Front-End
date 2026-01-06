@@ -11,6 +11,7 @@ try{
     console.log(error)}
 }
 
+// create cloth
 const createCloth = async (formData) => {
   try {
     const token = localStorage.getItem("token");
@@ -26,4 +27,48 @@ const createCloth = async (formData) => {
     console.log(error);
   }
 };
-export { getAllCloth, createCloth };
+
+// show cloth
+
+const show = async (clothId) => {
+  try {
+    const response = await axios.get(`${BASE_URL}/${clothId}`);
+
+    return response.data.foundCloth;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const update = async (clothId, formData) => {
+  try {
+    const token = localStorage.getItem("token");
+
+    const response = await axios.put(`${BASE_URL}/${clothId}`, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response.data.updatedcloth;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const deleteOne = async (clothId) => {
+  try {
+    const token = localStorage.getItem("token");
+
+    const response = await axios.delete(`${BASE_URL}/${clothId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response.data.deletedcloth;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export { getAllCloth, createCloth,show ,deleteOne, update };
