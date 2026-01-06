@@ -9,6 +9,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 
 import { UserContext } from './contexts/UserContext';
 import ClothList from './clothPages/ClothList/ClothList';
+import AddCloth from './clothPages/AddCloth/AddCloth';
 
 const App = () => {
   // Access the user object from UserContext
@@ -24,6 +25,7 @@ const App = () => {
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path='/sign-in' element={<SignInForm />} />
         <Route path="/cloth" element={<ClothList />} />
+        <Route path="/cloth/new" element={<AddCloth/>} />
       </Routes>
     </>
   );
