@@ -8,6 +8,7 @@ import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
 
 import { UserContext } from './contexts/UserContext';
+import ClothList from './clothPages/ClothList/ClothList';
 
 const App = () => {
   // Access the user object from UserContext
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/' element={user ? <Dashboard /> : <Landing />} />
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path='/sign-in' element={<SignInForm />} />
+        <Route path="/cloth" element={<ClothList />} />
       </Routes>
     </>
   );
