@@ -74,20 +74,20 @@ const ClothCreate = () => {
 
   return (
     <div className="clothCreatePage">
-      <h1>Create Cloth</h1>
+      <h1 className="clothCreateTitle">Create Cloth</h1>
 
-      {errorMessage && <p>{errorMessage}</p>}
+      {errorMessage && <p className="clothCreateError">{errorMessage}</p>}
 
-      <form onSubmit={handleSubmit}>
+      <form className="clothCreateForm" onSubmit={handleSubmit}>
 
-        <label htmlFor="name">Name</label>
-        <input id="name" name="name" type="text" value={formState.name} onChange={handleChange} />
+        <label className="clothCreateLabel" htmlFor="name">Name</label>
+        <input  className="clothCreateInput" id="name" name="name" type="text" value={formState.name} onChange={handleChange} />
 
-        <label htmlFor="description">Description</label>
-        <input id="description" name="description" type="text" value={formState.description} onChange={handleChange} />
+        <label className="clothCreateLabel" htmlFor="description">Description</label>
+        <input  className="clothCreateInput" id="description" name="description" type="text" value={formState.description} onChange={handleChange} />
 
-        <label htmlFor="category">Category</label>
-        <select id="category" name="category" value={formState.category} onChange={handleChange} >
+        <label className="clothCreateLabel" htmlFor="category">Category</label>
+        <select  className="clothCreateSelect" id="category" name="category" value={formState.category} onChange={handleChange} >
           <option value="abaya">abaya</option>
           <option value="jalabiya">jalabiya</option>
           <option value="dress">dress</option>
@@ -95,24 +95,25 @@ const ClothCreate = () => {
           <option value="other">other</option>
         </select>
 
-        <label htmlFor="price">Price</label>
-        <input id="price" name="price" type="number" min={0} value={formState.price} onChange={handleChange}/>
+        <label className="clothCreateLabel" htmlFor="price">Price</label>
+        <input className="clothCreateInput" id="price" name="price" type="number" min={0} value={formState.price} onChange={handleChange}/>
 
-        <label htmlFor="salePrice">Sale Price</label>
-        <input id="salePrice" name="salePrice" type="number" min={0} value={formState.salePrice} onChange={handleChange} />
+        <label className="clothCreateLabel" htmlFor="salePrice">Sale Price</label>
+        <input className="clothCreateInput" id="salePrice" name="salePrice" type="number" min={0} value={formState.salePrice} onChange={handleChange} />
 
-        <label htmlFor="stockQty">Stock Quantity</label>
+        <label className="clothCreateLabel" htmlFor="stockQty">Stock Quantity</label>
         <input id="stockQty" name="stockQty" type="number" min={0} value={formState.stockQty} onChange={handleChange} />
 
-        <label>
-          <input type="checkbox" name="isAvailable" checked={formState.isAvailable} onChange={handleChange} />
+        <label className="clothCreateCheckboxRow">
+          <input className="clothCreateCheckbox" type="checkbox" name="isAvailable" checked={formState.isAvailable} onChange={handleChange} />
           Available
         </label>
 
-        <h4>Sizes </h4>
+        <h4 className="clothCreateSubTitle">Sizes </h4>
         {["XS", "S", "M", "L", "XL", "XXL", "FreeSize"].map((size) => (
-          <label key={size}>
+          <label className="clothCreateSizes" key={size}>
             <input
+             className="clothCreateInput"
               type="checkbox"
               value={size}
               checked={selectedSizes.includes(size)}
@@ -123,10 +124,10 @@ const ClothCreate = () => {
 
         ))}
         
-        <label htmlFor="images">Stock Quantity</label>
-        <input id="images" type="file" multiple onChange={handleChange} />
+        <label className="clothCreateLabel" htmlFor="images">Stock Quantity</label>
+        <input  className="clothCreateFile" id="images" type="file" multiple onChange={handleChange} />
 
-        <button type="submit">Create</button>
+        <button className="clothCreateButton" type="submit">Create</button>
       </form>
     </div>
   );
