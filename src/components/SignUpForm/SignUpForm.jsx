@@ -24,9 +24,26 @@ const SignUpForm = () => {
 
   const handleSubmit = async (evt) => {
     evt.preventDefault();
-    const user = await authService.signUp(formData)
-    setUser(user); // this line will print the form data to the console
-    navigate('/')
+    try {
+      const res = await authService.signUp(formData);
+
+      const { token } = res;
+
+      localStorage.setItem('token', token);
+
+      const tokenParts = token.split('.');
+      const decodedPayload = atob(tokenParts[1]);
+      const parsedPayload = JSON.parse(decodedPayload);
+
+      
+      setUser(parsedPayload);
+
+     
+      navigate(`/profile/${parsedPayload._id}`);
+    } catch (err) {
+      setMessage('Error signing up. Please try again.');
+      console.error(err);
+    }
   };
 
   const isFormInvalid = () => {
@@ -43,7 +60,7 @@ const SignUpForm = () => {
           <label htmlFor='username'>Username:</label>
           <input
             type='text'
-            id='name'
+            id='username'
             value={username}
             name='username'
             onChange={handleChange}
@@ -64,7 +81,7 @@ const SignUpForm = () => {
           />
         </div>
 
-        {/* Coinfirm Password */}
+        {/* Confirm Password */}
         <div>
           <label htmlFor='confirm'>Confirm Password:</label>
           <input
@@ -80,7 +97,7 @@ const SignUpForm = () => {
         {/* Form Actions */}
         <div>
           <button disabled={isFormInvalid()}>Sign Up</button>
-          <button onClick={() => navigate('/')}>Cancel</button>
+          <button type="button" onClick={() => navigate('/')}>Cancel</button>
         </div>
       </form>
     </main>

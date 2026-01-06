@@ -1,9 +1,8 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router';
-
 import { signIn } from '../../services/authService';
-
 import { UserContext } from '../../contexts/UserContext';
+import { jwtDecode } from 'jwt-decode';
 
 const SignInForm = () => {
   const navigate = useNavigate();
@@ -22,11 +21,20 @@ const SignInForm = () => {
   const handleSubmit = async (evt) => {
     evt.preventDefault();
     try {
-      const signedInUser = await signIn(formData);
-      setUser(signedInUser);
-      navigate('/');
+     
+      const { token, profileId } = await signIn(formData);
+
+     
+      localStorage.setItem('token', token);
+
+      
+      const user = jwtDecode(token);
+      setUser(user);
+
+      
+      navigate(`/profile/${profileId}`);
     } catch (err) {
-      setMessage(err.message);
+      setMessage("err");
     }
   };
 
@@ -36,7 +44,7 @@ const SignInForm = () => {
       <p>{message}</p>
       <form autoComplete='off' onSubmit={handleSubmit}>
         <div>
-          <label htmlFor='email'>Username:</label>
+          <label htmlFor='username'>Username:</label>
           <input
             type='text'
             autoComplete='off'
@@ -60,8 +68,8 @@ const SignInForm = () => {
           />
         </div>
         <div>
-          <button>Sign In</button>
-          <button onClick={() => navigate('/')}>Cancel</button>
+          <button type="submit">Sign In</button>
+          <button type="button" onClick={() => navigate('/')}>Cancel</button>
         </div>
       </form>
     </main>

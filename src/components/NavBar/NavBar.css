@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  background: white;
+  color: black;
+}
+
+.page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background-color: #3b4f7f;
+}
+
+.nav-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+}
+
+.logo {
+  color: white;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-center a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.nav-center a:hover {
+  color: #e8c456;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-search {
+  width: 150px;
+  padding: 7px 12px;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  font-size: 13px;
+}
+
+.icon-link {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.icon-link:hover {
+  color: #e8c456;
+}
+
+.auth-link {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.auth-link:hover {
+  color: #e8c456;
+}
+
+.profile-img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
