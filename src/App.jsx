@@ -10,7 +10,10 @@ import Dashboard from './components/Dashboard/Dashboard';
 
 import CartSummary from './components/CartSummary/CartSummary';
 import CartItem from './components/CartItem/CartItem';
-import Cart from './pages/Cart';
+import Cart from './pages/CartCard.jsx';
+
+import MyOrders from './pages/MyOrders.jsx';
+import OrderCard from './components/OrderCard/OrderCard.jsx';
 
 import { UserContext } from './contexts/UserContext';
 import { CartContext } from './contexts/CartContext.jsx';
@@ -33,6 +36,8 @@ const App = () => {
         <Route path='/cart' element={<Cart totalPrice={totalPrice} setTotalPrice={setTotalPrice} />} />
         <Route path='/cart-summary' element={<CartSummary totalPrice={totalPrice} />} />
         <Route path='/cart-item' element={<CartItem />} />
+        <Route path='/my-orders' element={<MyOrders />} />
+        <Route path='/order-card' element={<OrderCard />} />
 
       </Routes>
     </>
