@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Routes, Route } from 'react-router';
+import {useState} from 'react';
 
 import NavBar from './components/NavBar/NavBar';
 import SignUpForm from './components/SignUpForm/SignUpForm';
@@ -7,12 +8,19 @@ import SignInForm from './components/SignInForm/SignInForm';
 import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
 
+import CartSummary from './components/CartSummary/CartSummary';
+import CartItem from './components/CartItem/CartItem';
+import Cart from './pages/Cart';
+
 import { UserContext } from './contexts/UserContext';
+import { CartContext } from './contexts/CartContext.jsx';
 
 const App = () => {
   // Access the user object from UserContext
   // This gives us the currently logged-in user's information (username, email) that we extract from the token
   const { user } = useContext(UserContext);
+
+  const [totalPrice, setTotalPrice] = useState(0);
 
   return (
     <>
@@ -22,6 +30,10 @@ const App = () => {
         <Route path='/' element={user ? <Dashboard /> : <Landing />} />
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path='/sign-in' element={<SignInForm />} />
+        <Route path='/cart' element={<Cart totalPrice={totalPrice} setTotalPrice={setTotalPrice} />} />
+        <Route path='/cart-summary' element={<CartSummary totalPrice={totalPrice} />} />
+        <Route path='/cart-item' element={<CartItem />} />
+
       </Routes>
     </>
   );
