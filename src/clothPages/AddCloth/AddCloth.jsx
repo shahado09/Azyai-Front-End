@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import * as clothService from "../../services/clothService";
 import CloudinaryMultiUpload from "../../components/CloudinaryMultiUpload/CloudinaryMultiUpload";
+import { UserContext } from "../../contexts/UserContext";
 
 
 const ClothCreate = () => {
