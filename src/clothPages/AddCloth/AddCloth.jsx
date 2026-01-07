@@ -18,6 +18,7 @@ const ClothCreate = () => {
 
   const [selectedSizes, setSelectedSizes] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const [selectedImages, setSelectedImages] = useState([]);
 
 
   const handleChange = (event) => {
@@ -36,6 +37,11 @@ const ClothCreate = () => {
       setSelectedSizes((prev) => prev.filter((selectedSize) => selectedSize !== value));
     }
   };
+  
+  const handleImagesChange = (event) => {
+  const files = Array.from(event.target.files || []);
+  setSelectedImages(files);
+};
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -47,25 +53,32 @@ const ClothCreate = () => {
     }
 
     try {
-      const payload = { ...formState };
-      payload.price = Number(payload.price);
-      payload.stockQty = Number(payload.stockQty);
+      const formData = new FormData();
 
-      if (payload.salePrice === "") {
-        delete payload.salePrice;
-      } else {
-        payload.salePrice = Number(payload.salePrice);
-      }
+      formData.append("name", formState.name);
+      formData.append("description", formState.description);
+      formData.append("category", formState.category);
+      formData.append("price", String(Number(formState.price)));
+      formData.append("stockQty", String(Number(formState.stockQty)));
+      if (formState.salePrice !== "") {
+        formData.append("salePrice", String(Number(formState.salePrice)));}
+      if (formState.isAvailable) {
+        formData.append("isAvailable", "true");}
+      selectedSizes.forEach((size) => {
+        formData.append("sizes", size);
+      });
 
-      payload.sizes = selectedSizes;
-      payload.images = [];
-      const createdCloth = await clothService.createCloth(payload);
+      selectedImages.forEach((file) => {
+        formData.append("images", file);
+      });
 
+      const createdCloth = await clothService.createCloth(formData);
+        
       if (createdCloth) {
         navigate("/cloth");
       } else {
         console.log("Something went wrong");
-      }
+      }                                                                 
     } catch (error) {
       console.log(error);
       setErrorMessage("Create failed");
@@ -125,7 +138,7 @@ const ClothCreate = () => {
         ))}
         
         <label className="clothCreateLabel" htmlFor="images">Imges</label>
-        <input  className="clothCreateFile" id="images" type="file" multiple onChange={handleChange} />
+        <input  name="images"className="clothCreateFile" id="images" type="file" multiple onChange={handleChange} accept="image/*" />
 
         <button className="clothCreateButton" type="submit">Create</button>
       </form>

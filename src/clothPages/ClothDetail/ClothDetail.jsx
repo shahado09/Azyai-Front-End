@@ -18,15 +18,14 @@ function ClothDetail(props) {
   }, [id]);
 
   const handleDelete = async () => {
-    const deletedCloth = await clothService.deleteOne(id);
+  const message = await clothService.deleteOne(id);
 
-    if (deletedCloth) {
-      navigate("/cloth");
-    } else {
-      console.log("something went wrong!");
-    }
-  };
-
+  if (message) {
+    navigate("/cloth", { replace: true });
+  } else {
+    console.log("something went wrong!");
+  }
+};
   if (!id) return <h1 className="clothDetailLoading">Loading...</h1>;
   if (!cloth) return <h1 className="clothDetailLoading">Loading...</h1>;
 

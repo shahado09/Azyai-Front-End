@@ -49,8 +49,8 @@ const update = async (clothId, formData) => {
         Authorization: `Bearer ${token}`,
       },
     });
-
-    return response.data.updatedcloth;
+// console.log(response.data.updated)
+    return response.data.updated;
   } catch (error) {
     console.log(error);
   }
@@ -66,7 +66,7 @@ const deleteOne = async (clothId) => {
       },
     });
 
-    return response.data.deletedcloth;
+    return response.data.message; 
   } catch (error) {
     console.log(error);
   }
