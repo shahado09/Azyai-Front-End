@@ -1,0 +1,164 @@
+
+.clothDetailPage {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 50px;
+}
+
+
+.clothDetailLoading {
+  text-align: center;
+  margin: 50px 0;
+  font-size: 18px;
+  font-weight: 800;
+  color: #444;
+}
+
+
+.clothDetailTitle {
+  margin: 0 0 10px;
+  font-size: 28px;
+  font-weight: 900;
+  color: #111;
+  letter-spacing: -0.3px;
+}
+
+.clothDetailDescription {
+  margin: 0 0 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  line-height: 1.6;
+}
+
+.clothDetailInfo {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  background: #fff;
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.clothDetailLine {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  padding: 10px 10px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.clothDetailLabel {
+  font-size: 13px;
+  font-weight: 800;
+  color: #333;
+}
+
+.clothDetailValue {
+  font-size: 13px;
+  font-weight: 800;
+  color: #111;
+  text-align: right;
+  word-break: break-word;
+}
+
+.clothDetailImages {
+  display: grid;
+  gap: 12px;
+  margin: 18px 0 22px;
+
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  align-items: start;
+}
+
+.clothDetailImage {
+  width: 100%;
+  height: 420px;         
+  object-fit: contain;   
+  background: #f5f5f5;
+  padding: 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+
+.clothDetailActions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.clothDetailEditLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #111;
+  color: #fff;
+  font-weight: 900;
+  font-size: 13px;
+  text-decoration: none;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.clothDetailEditLink:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.clothDetailDeleteButton {
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 0, 0, 0.35);
+  background: rgba(255, 0, 0, 0.08);
+  color: #b00020;
+  font-weight: 900;
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.clothDetailDeleteButton:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+@media (max-width: 480px) {
+  .clothDetailTitle {
+    font-size: 22px;
+  }
+
+  .clothDetailLine {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .clothDetailValue {
+    text-align: left;
+  }
+
+  .clothDetailImages {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .clothDetailImage {
+    height: 320px;
+    padding: 8px;
+  }
+
+  .clothDetailActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .clothDetailEditLink,
+  .clothDetailDeleteButton {
+    width: 100%;
+  }
+}

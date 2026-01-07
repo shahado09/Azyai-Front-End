@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import * as clothService from "../../services/clothService";
+import CloudinaryMultiUpload from "../../components/CloudinaryMultiUpload/CloudinaryMultiUpload";
+
 
 const ClothCreate = () => {
   const navigate = useNavigate();
@@ -18,6 +20,7 @@ const ClothCreate = () => {
 
   const [selectedSizes, setSelectedSizes] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
+  const [imageUrls, setImageUrls] = useState([]);
 
 
   const handleChange = (event) => {
@@ -36,6 +39,7 @@ const ClothCreate = () => {
       setSelectedSizes((prev) => prev.filter((selectedSize) => selectedSize !== value));
     }
   };
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -47,25 +51,22 @@ const ClothCreate = () => {
     }
 
     try {
-      const payload = { ...formState };
-      payload.price = Number(payload.price);
-      payload.stockQty = Number(payload.stockQty);
+      const payload = { 
+        ...formState,
+        price: Number(formState.price),
+        stockQty: Number(formState.stockQty),
+        salePrice: formState.salePrice === "" ? null : Number(formState.salePrice),
+        sizes: selectedSizes,
+        images: imageUrls,
+};
 
-      if (payload.salePrice === "") {
-        delete payload.salePrice;
-      } else {
-        payload.salePrice = Number(payload.salePrice);
-      }
-
-      payload.sizes = selectedSizes;
-      payload.images = [];
       const createdCloth = await clothService.createCloth(payload);
 
       if (createdCloth) {
         navigate("/cloth");
       } else {
         console.log("Something went wrong");
-      }
+      }                                                                 
     } catch (error) {
       console.log(error);
       setErrorMessage("Create failed");
@@ -125,7 +126,7 @@ const ClothCreate = () => {
         ))}
         
         <label className="clothCreateLabel" htmlFor="images">Imges</label>
-        <input  className="clothCreateFile" id="images" type="file" multiple onChange={handleChange} />
+        <CloudinaryMultiUpload onUploaded={(urls) => setImageUrls((prev) => [...prev, ...urls])} />
 
         <button className="clothCreateButton" type="submit">Create</button>
       </form>

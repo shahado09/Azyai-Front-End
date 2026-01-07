@@ -44,8 +44,9 @@ const ClothEdit = () => {
 
     const updatedCloth = await clothService.update(id, payload);
 
+    console.log(updatedCloth)
     if (updatedCloth) {
-      navigate(`/cloth/${id}`, { replace: true });
+      navigate(`/cloth`, { replace: true });
     } else {
       console.log("something went wrong");
     }
