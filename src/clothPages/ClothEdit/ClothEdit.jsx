@@ -30,7 +30,6 @@ const ClothEdit = () => {
     setFormState(newFormState);
   };
 
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     const payload = { ...formState };
