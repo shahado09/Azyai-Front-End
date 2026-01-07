@@ -24,7 +24,7 @@ function ClothDetail(props) {
     if (id) getOneCloth(id);
   }, [id]);
 
-  const canManage = user && (user.role === "vendor" || user.role === "admin");
+
   const handleDelete = async () => {
       const message = await clothService.deleteOne(id);
 
@@ -37,6 +37,9 @@ function ClothDetail(props) {
   };
   if (!id) return <h1 className="clothDetailLoading">Loading...</h1>;
   if (!cloth) return <h1 className="clothDetailLoading">Loading...</h1>;
+  const canEditDelete =
+  user?.role === "admin" ||
+  (user?.role === "vendor" && String(cloth.userId) === String(user?._id));
 
 return (
   <div className="clothDetailPage">
@@ -106,17 +109,18 @@ return (
 
 
     <div className="clothDetailActions">
-  {canManage && (
-    <>
-      <Link className="clothDetailEditLink" to={`/cloth/${id}/edit`}>
-        Edit
-      </Link>
+      {canEditDelete && (
+        <>
+          <Link className="clothDetailEditLink" to={`/cloth/${id}/edit`}>
+            Edit
+          </Link>
 
-      <button className="clothDetailDeleteButton" onClick={handleDelete}>
-        Delete
-      </button>
-    </>
-  )}
+          <button className="clothDetailDeleteButton" onClick={handleDelete}>
+            Delete
+          </button>
+        </>
+
+      )}
 
   <button onClick={() => addToCart(cloth)}>
     Add to Cart
