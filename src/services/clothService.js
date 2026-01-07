@@ -49,7 +49,7 @@ const update = async (clothId, formData) => {
         Authorization: `Bearer ${token}`,
       },
     });
-// console.log(response.data.updated)
+
     return response.data.updated;
   } catch (error) {
     console.log(error);
