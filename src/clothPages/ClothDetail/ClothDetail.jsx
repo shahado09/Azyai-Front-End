@@ -89,22 +89,6 @@ return (
         </p>
       </div>
 
-      <div className="clothDetailActions">
-        <Link className="clothDetailEditLink" to={`/cloth/${id}/edit`}>
-          Edit
-        </Link>
-
-        <button className="clothDetailDeleteButton" onClick={handleDelete}>
-          Delete
-        </button>
-        <button  onClick={handleAddToCart}>Add to Cart</button>
-      </div>
-      <p className="clothDetailLine">
-        <span className="clothDetailLabel">Sizes:</span>
-        <span className="clothDetailValue">
-          {Array.isArray(cloth.sizes) ? cloth.sizes.join(", ") : ""}
-        </span>
-      </p>
 
 
     {Array.isArray(cloth.images) && cloth.images.length > 0 && (
@@ -132,6 +116,10 @@ return (
         >
         Delete
       </button>
+
+      <button onClick={() => addToCart(cloth)}>
+  Add to Cart
+</button>
     </div>
   
         </div>
