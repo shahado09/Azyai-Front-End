@@ -7,6 +7,7 @@ import SignUpForm from './components/SignUpForm/SignUpForm';
 import SignInForm from './components/SignInForm/SignInForm';
 import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
+import RequireRole from './components/accessControl/RequireRole.jsx';
 
 import CartSummary from './components/CartSummary/CartSummary';
 import CartItem from './components/CartItem/CartItem';
@@ -39,9 +40,9 @@ const App = () => {
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path='/sign-in' element={<SignInForm />} />
         <Route path="/cloth" element={<ClothList />} />
-        <Route path="/cloth/new" element={<AddCloth/>} />
+        <Route path="/cloth/new" element={ <RequireRole allowedRoles={["vendor", "admin"]}> <AddCloth /> </RequireRole>}/>
+        <Route path="/cloth/:id/edit" element={ <RequireRole allowedRoles={["vendor", "admin"]}> <ClothEdit /> </RequireRole>}/>
         <Route path="/cloth/:id" element={<ClothDetail />} />
-        <Route path="/cloth/:id/edit" element={<ClothEdit />} />
         <Route path='/cart' element={<Cart totalPrice={totalPrice} setTotalPrice={setTotalPrice} />} />
         <Route path='/cart-summary' element={<CartSummary totalPrice={totalPrice} />} />
         <Route path='/checkout-btn' element={<CheckoutBtn />} />
