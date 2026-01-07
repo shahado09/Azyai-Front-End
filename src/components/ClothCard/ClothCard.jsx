@@ -13,7 +13,7 @@ const ClothCard = ({ cloth }) => {
   };
   
   const handleAddToCart = () => {
-    alert('Adding ' + cloth.name + ' to cart');
+    //alert('Adding ' + cloth.name + ' to cart');
     console.log('Adding to cart:', cloth);
     addToCart(cloth);
   }
