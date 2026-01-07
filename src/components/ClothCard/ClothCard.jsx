@@ -13,9 +13,7 @@ const ClothCard = ({ cloth }) => {
   };
   
   const handleAddToCart = () => {
-    //alert('Adding ' + cloth.name + ' to cart');
-    console.log('Adding to cart:', cloth);
-    addToCart(cloth);
+    addToCart(cloth)
   }
 
   const BACKEND_URL = import.meta.env.VITE_BACK_END_SERVER_URL;
