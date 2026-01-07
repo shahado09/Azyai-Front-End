@@ -1,6 +1,7 @@
 import React from 'react'
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
+import CheckoutBtn from '../CheckoutBtn/CheckoutBtn';
 
 
 function CartSummary() {
@@ -9,7 +10,6 @@ function CartSummary() {
     <div className="cart-summary">
         <div>
       <p className="total-price">Total Price: {totalPrice} BD</p>
-      <button className="checkout-btn">Checkout →</button>
       </div>
     </div>
   )

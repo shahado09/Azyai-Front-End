@@ -13,12 +13,15 @@ export function CartProvider({ children }) {
 
 
   function addToCart(item) {
+    alert('addToCart called for ' + item.name);
+    console.log('addToCart called with:', item);
+    const itemId = item._id || item.id;
     setCartItems(prev => {
-      const found = prev.find(oneItem => oneItem.clothId === item.clothId);
+      const found = prev.find(oneItem => (oneItem._id || oneItem.id) === itemId);
 
       if (found) {
         return prev.map(oneItem =>
-          oneItem.clothId === item.clothId
+          (oneItem._id || oneItem.id) === itemId
             ? { ...oneItem, quantity: oneItem.quantity + 1 } : oneItem
         );
       }
@@ -30,7 +33,7 @@ export function CartProvider({ children }) {
   
   function removeFromCart(clothId) {
     setCartItems(prev => prev.map(oneItem =>
-          oneItem.clothId === clothId ?
+          (oneItem._id || oneItem.id) === clothId ?
            { ...oneItem, quantity: oneItem.quantity - 1 }
             : oneItem
         ).filter(oneItem => oneItem.quantity > 0)

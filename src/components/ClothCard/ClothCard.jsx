@@ -1,12 +1,22 @@
 import { useNavigate } from "react-router";
 import "./ClothCard.css";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
+import { Link } from "react-router";
 
 const ClothCard = ({ cloth }) => {
   const navigate = useNavigate();
+  const { addToCart } = useContext(CartContext);
 
   const handleClick = () => {
     navigate(`/cloth/${cloth._id}`);
   };
+  
+  const handleAddToCart = () => {
+    alert('Adding ' + cloth.name + ' to cart');
+    console.log('Adding to cart:', cloth);
+    addToCart(cloth);
+  }
 
   const BACKEND_URL = import.meta.env.VITE_BACK_END_SERVER_URL;
 
@@ -16,7 +26,7 @@ const ClothCard = ({ cloth }) => {
 
 
   return (
-    <div className="card" onClick={handleClick}>
+    <div className="card">
       <img src={image} alt={cloth.name} className="card-img" />
 
       <div className="card-body">
@@ -34,6 +44,11 @@ const ClothCard = ({ cloth }) => {
         </div>
 
         {(!cloth.isAvailable || cloth.stockQty <= 0) && (<div className="card-badge">Out of stock</div> )}
+        <div>
+          <button  onClick={handleClick}>View Cloth</button>
+          <button  onClick={handleAddToCart}>Add to Cart</button>
+          
+        </div>
       </div>
     </div>
   );

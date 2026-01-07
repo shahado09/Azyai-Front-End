@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import * as clothService from "../../services/clothService";
 import { Link, useParams, useNavigate } from "react-router";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
+
 import "./ClothDetail.css";
 
 function ClothDetail(props) {
@@ -8,6 +11,7 @@ function ClothDetail(props) {
   const navigate = useNavigate();
 
   const [cloth, setCloth] = useState(null);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const getOneCloth = async (clothId) => {
@@ -20,6 +24,10 @@ function ClothDetail(props) {
 
   const handleDelete = async () => {
   const message = await clothService.deleteOne(id);
+
+   const handleAddToCart = () => {
+    addToCart(cloth)
+  }
 
   if (message) {
     navigate("/cloth", { replace: true });
@@ -61,23 +69,52 @@ return (
         </span>
       </p>
 
+        <p className="clothDetailLine">
+          <span className="clothDetailLabel">Stock:</span>
+          <span className="clothDetailValue">{cloth.stockQty}</span>
+        </p>
+
+        <p className="clothDetailLine">
+          <span className="clothDetailLabel">Available:</span>
+          <span className="clothDetailValue">
+            {cloth.isAvailable ? "Yes" : "No"}
+          </span>
+        </p>
+
+        <p className="clothDetailLine">
+          <span className="clothDetailLabel">Sizes:</span>
+          <span className="clothDetailValue">
+            {Array.isArray(cloth.sizes) ? cloth.sizes.join(", ") : ""}
+          </span>
+        </p>
+      </div>
+
+      <div className="clothDetailActions">
+        <Link className="clothDetailEditLink" to={`/cloth/${id}/edit`}>
+          Edit
+        </Link>
+
+        <button className="clothDetailDeleteButton" onClick={handleDelete}>
+          Delete
+        </button>
+        <button  onClick={handleAddToCart}>Add to Cart</button>
+      </div>
       <p className="clothDetailLine">
         <span className="clothDetailLabel">Sizes:</span>
         <span className="clothDetailValue">
           {Array.isArray(cloth.sizes) ? cloth.sizes.join(", ") : ""}
         </span>
       </p>
-    </div>
 
 
     {Array.isArray(cloth.images) && cloth.images.length > 0 && (
       <div className="clothDetailImages">
         {cloth.images.map((img, index) => (
           <img
-            key={index}
-            src={img}
-            alt={`${cloth.name}-${index}`}
-            className="clothDetailImage"
+          key={index}
+          src={img}
+          alt={`${cloth.name}-${index}`}
+          className="clothDetailImage"
           />
         ))}
       </div>
@@ -92,11 +129,12 @@ return (
       <button
         className="clothDetailDeleteButton"
         onClick={handleDelete}
-      >
+        >
         Delete
       </button>
     </div>
-  </div>
+  
+        </div>
 );
 
 }
