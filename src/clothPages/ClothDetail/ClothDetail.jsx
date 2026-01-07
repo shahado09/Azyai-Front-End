@@ -3,12 +3,14 @@ import * as clothService from "../../services/clothService";
 import { Link, useParams, useNavigate } from "react-router";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
+import { UserContext } from "../../contexts/UserContext";
 
 import "./ClothDetail.css";
 
 function ClothDetail(props) {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { user } = useContext(UserContext);
 
   const [cloth, setCloth] = useState(null);
   const { addToCart } = useContext(CartContext);
@@ -22,19 +24,17 @@ function ClothDetail(props) {
     if (id) getOneCloth(id);
   }, [id]);
 
+  const canManage = user && (user.role === "vendor" || user.role === "admin");
   const handleDelete = async () => {
-  const message = await clothService.deleteOne(id);
+      const message = await clothService.deleteOne(id);
 
-   const handleAddToCart = () => {
-    addToCart(cloth)
-  }
 
-  if (message) {
-    navigate("/cloth", { replace: true });
-  } else {
-    console.log("something went wrong!");
-  }
-};
+      if (message) {
+        navigate("/cloth", { replace: true });
+      } else {
+        console.log("something went wrong!");
+      }
+  };
   if (!id) return <h1 className="clothDetailLoading">Loading...</h1>;
   if (!cloth) return <h1 className="clothDetailLoading">Loading...</h1>;
 
@@ -106,21 +106,22 @@ return (
 
 
     <div className="clothDetailActions">
+  {canManage && (
+    <>
       <Link className="clothDetailEditLink" to={`/cloth/${id}/edit`}>
         Edit
       </Link>
 
-      <button
-        className="clothDetailDeleteButton"
-        onClick={handleDelete}
-        >
+      <button className="clothDetailDeleteButton" onClick={handleDelete}>
         Delete
       </button>
+    </>
+  )}
 
-      <button onClick={() => addToCart(cloth)}>
-  Add to Cart
-</button>
-    </div>
+  <button onClick={() => addToCart(cloth)}>
+    Add to Cart
+  </button>
+</div>
   
         </div>
 );
