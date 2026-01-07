@@ -20,8 +20,10 @@ const ClothCard = ({ cloth }) => {
 
   const BACKEND_URL = import.meta.env.VITE_BACK_END_SERVER_URL;
 
-  const image = cloth.images && cloth.images.length > 0
-     ? `${BACKEND_URL}${cloth.images[0]}`: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_XJPZaWfGfx3rso1POXsawWUc0L_1XozN3Q&s";
+  const image =
+  Array.isArray(cloth.images) && cloth.images.length > 0 ? cloth.images[0] 
+    : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_XJPZaWfGfx3rso1POXsawWUc0L_1XozN3Q&s";
+
 
   return (
     <div className="card">
@@ -29,11 +31,6 @@ const ClothCard = ({ cloth }) => {
 
       <div className="card-body">
         <h3 className="card-title">{cloth.name}</h3>
-
-        <div className="card-meta">
-          <span>{cloth.category}</span>
-          <span>{cloth.sku}</span>
-        </div>
 
         <div className="card-price">
           {cloth.salePrice ? (

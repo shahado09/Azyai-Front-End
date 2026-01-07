@@ -65,7 +65,7 @@ if (searchText.trim() !== "") {
   filteredClothes = CategoryFilter(results);
 }
 
-  // filteredClothes = filteredClothes.filter((cloth) => cloth.isAvailable && cloth.stockQty > 0);
+
 
 
 // loading and error message
@@ -87,6 +87,7 @@ if (searchText.trim() !== "") {
       </div>
     );
   }
+console.log(filteredClothes);
 
 
   return (
