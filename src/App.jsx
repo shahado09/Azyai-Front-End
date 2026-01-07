@@ -16,7 +16,14 @@ import MyOrders from './pages/MyOrders.jsx';
 import OrderCard from './components/OrderCard/OrderCard.jsx';
 
 import { UserContext } from './contexts/UserContext';
+<<<<<<< HEAD
+import ClothList from './clothPages/ClothList/ClothList';
+import AddCloth from './clothPages/AddCloth/AddCloth';
+import ClothDetail from './clothPages/ClothDetail/ClothDetail';
+import ClothEdit from "./clothPages/ClothEdit/ClothEdit";
+=======
 import { CartContext } from './contexts/CartContext.jsx';
+>>>>>>> main
 
 const App = () => {
   // Access the user object from UserContext
@@ -33,12 +40,19 @@ const App = () => {
         <Route path='/' element={user ? <Dashboard /> : <Landing />} />
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path='/sign-in' element={<SignInForm />} />
+<<<<<<< HEAD
+        <Route path="/cloth" element={<ClothList />} />
+        <Route path="/cloth/new" element={<AddCloth/>} />
+        <Route path="/cloth/:id" element={<ClothDetail />} />
+        <Route path="/cloth/:id/edit" element={<ClothEdit />} />
+=======
         <Route path='/cart' element={<Cart totalPrice={totalPrice} setTotalPrice={setTotalPrice} />} />
         <Route path='/cart-summary' element={<CartSummary totalPrice={totalPrice} />} />
         <Route path='/cart-item' element={<CartItem />} />
         <Route path='/my-orders' element={<MyOrders />} />
         <Route path='/order-card' element={<OrderCard />} />
 
+>>>>>>> main
       </Routes>
     </>
   );
