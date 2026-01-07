@@ -105,17 +105,16 @@ return (
           {Array.isArray(cloth.sizes) ? cloth.sizes.join(", ") : ""}
         </span>
       </p>
-    </div>
 
 
     {Array.isArray(cloth.images) && cloth.images.length > 0 && (
       <div className="clothDetailImages">
         {cloth.images.map((img, index) => (
           <img
-            key={index}
-            src={img}
-            alt={`${cloth.name}-${index}`}
-            className="clothDetailImage"
+          key={index}
+          src={img}
+          alt={`${cloth.name}-${index}`}
+          className="clothDetailImage"
           />
         ))}
       </div>
@@ -130,11 +129,12 @@ return (
       <button
         className="clothDetailDeleteButton"
         onClick={handleDelete}
-      >
+        >
         Delete
       </button>
     </div>
   
+        </div>
 );
 
 }
