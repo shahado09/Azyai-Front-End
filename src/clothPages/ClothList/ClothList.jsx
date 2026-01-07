@@ -126,7 +126,7 @@ if (searchText.trim() !== "") {
       ) : (
         <div className="cards-grid">
           {filteredClothes.map((cloth) => (
-            <ClothCard key={cloth._id} cloth={cloth} />
+            <ClothCard key={cloth._id || cloth.id} cloth={cloth} />
           ))}
         </div>
       )}

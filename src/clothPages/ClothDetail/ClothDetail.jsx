@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
 import * as clothService from "../../services/clothService";
 import { Link, useParams, useNavigate } from "react-router";
+import { useContext } from "react";
+import { CartContext } from "../../contexts/CartContext";
+
 
 function ClothDetail(props) {
   const { id } = useParams();
   const navigate = useNavigate();
 
   const [cloth, setCloth] = useState(null);
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     const getOneCloth = async (clothId) => {
@@ -26,6 +30,10 @@ function ClothDetail(props) {
       console.log("something went wrong!");
     }
   };
+
+   const handleAddToCart = () => {
+    addToCart(cloth)
+  }
 
   if (!id) return <h1 className="clothDetailLoading">Loading...</h1>;
   if (!cloth) return <h1 className="clothDetailLoading">Loading...</h1>;
@@ -82,6 +90,7 @@ return (
         <button className="clothDetailDeleteButton" onClick={handleDelete}>
           Delete
         </button>
+        <button  onClick={handleAddToCart}>Add to Cart</button>
       </div>
     </div>
   );

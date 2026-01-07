@@ -21,6 +21,7 @@ import AddCloth from './clothPages/AddCloth/AddCloth';
 import ClothDetail from './clothPages/ClothDetail/ClothDetail';
 import ClothEdit from "./clothPages/ClothEdit/ClothEdit";
 import { CartContext } from './contexts/CartContext.jsx';
+import CheckoutBtn from './components/CheckoutBtn/CheckoutBtn';
 
 const App = () => {
   // Access the user object from UserContext
@@ -43,6 +44,7 @@ const App = () => {
         <Route path="/cloth/:id/edit" element={<ClothEdit />} />
         <Route path='/cart' element={<Cart totalPrice={totalPrice} setTotalPrice={setTotalPrice} />} />
         <Route path='/cart-summary' element={<CartSummary totalPrice={totalPrice} />} />
+        <Route path='/checkout-btn' element={<CheckoutBtn />} />
         <Route path='/cart-item' element={<CartItem />} />
         <Route path='/my-orders' element={<MyOrders />} />
         <Route path='/order-card' element={<OrderCard />} />
