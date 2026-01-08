@@ -48,17 +48,13 @@ function VendorRequest() {
 
         if (!instagram || !vendorName || !aboutVendor) {
             setError("All fields are required");
-            return;
-        }
+            return;}
 
         try {
             setSubmitting(true);
-
             await vendorRequestService.createRequest({instagram,vendorName,aboutVendor,});
-
             setSuccess("Request submitted successfully");
             setFormData({ instagram: "", vendorName: "", aboutVendor: "" });
-
             await fetchLatest(); 
         } catch (err) {
             console.log(err);
@@ -69,7 +65,7 @@ function VendorRequest() {
 };
 
 
-
+    const shouldShowForm = !latest || latest.status === "rejected";
     useEffect(() => {fetchLatest();}, []);
 
 return (
@@ -114,10 +110,10 @@ return (
     {error && <p className="vr-error">{error}</p>}
     {success && <p className="vr-success">{success}</p>}
 
-      <section className="vr-formSec">
+    {shouldShowForm && (<section className="vr-formSec">
       <h2 className="vr-formTitle">Submit Vendor Request</h2>
 
-      <form className="vr-form">
+      <form className="vr-form" onSubmit={handleSubmit}>
         <label className="vr-field">
           <span className="vr-label">Instagram</span>
           <input className="vr-input" name="instagram" value={formData.instagram}
@@ -136,6 +132,9 @@ return (
         <button className="vr-btn" type="submit" disabled={submitting}>{submitting ? "Submitting..." : "Submit"}</button>
       </form>
     </section>
+)}
+
+      
   </main>
 );
 }
