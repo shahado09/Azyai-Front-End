@@ -1,0 +1,30 @@
+.order-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.order-card p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #374151;
+}
+
+.order-card p:first-child {
+  font-weight: 600;
+  font-size: 16px;
+  color: #111827;
+}
+
+.order-card .status {
+  font-weight: 600;
+  color: #3f4f7a; /* لون مميز للحالة */
+}
