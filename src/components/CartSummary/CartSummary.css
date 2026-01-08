@@ -1,18 +1,19 @@
-:root {
-  --primary-blue: #3f4f7a;
-  --light-gray: #e5e7eb;
-}
-
-.cart-summary {
-  margin-top: 30px;
-  padding: 20px;
-  border-top: 2px solid var(--light-gray);
+.cart-footer {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between; /* يخلي التوتال يسار والزر يمين */
+  align-items: center;
+  padding: 0 20px;
+  background: #fff;
+  border-top: 2px solid #e5e7eb;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
 }
 
 .total-price {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
-  color: var(--primary-blue);
+  color: #3f4f7a;
 }

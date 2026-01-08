@@ -19,7 +19,7 @@ function Cart() {
         ))}
         </ul> 
       <CartSummary/>
-      <CheckoutBtn/>
+      
       
     </div>
   )
