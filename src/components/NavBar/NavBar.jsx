@@ -25,7 +25,7 @@ const NavBar = () => {
 
         <div className="nav-center">
           <Link to="/">Home</Link>
-          <Link to="/shop">Shop</Link>
+          <Link to="/cloth">Shop</Link>
           <Link to="/chats">Chats</Link>
           <Link to="/about">About</Link>
           <Link to="/terms">Terms and Conditions</Link>

@@ -1,7 +1,8 @@
 import axios from "axios";
 
 // Set the base URL for profile routes
-const BASE_URL = "http://localhost:3000/profile";
+const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/profiles`;
+
 
 // Function to create a new profile
 export const create = async (formData) => {
@@ -41,7 +42,6 @@ export const update = async (id, formData) => {
     const res = await axios.put(`${BASE_URL}/${id}`, formData, {
       headers: {
         Authorization: `Bearer ${token}`, // Set authorization header
-        "Content-Type": "application/json", // Set content type
       },
     });
     return res.data; // Return the updated profile data
