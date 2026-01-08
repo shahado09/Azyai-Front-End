@@ -16,20 +16,30 @@ function VendorRequest() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  async function fetchLatest() {
-    try {
-        setLoading(true);     
-        setError("");         
-        const data = await vendorRequestService.getLatest(); 
-        setLatest(data); } 
-    catch (err) {
-        console.log(err);
-        setError("Error loading vendor request");} 
-    finally {
-        setLoading(false);}
-    }
+    const fetchLatest = async () => {
+        try {
+            setLoading(true);
+            setError("");
 
-useEffect(() => {fetchLatest();}, []);
+            const data = await vendorRequestService.getLatest();
+            setLatest(data);
+        } catch (err) {
+            console.log(err);
+            setError("Error loading vendor request");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        const newFormData = {...formData,[name]: value,};
+        setFormData(newFormData);
+    };
+
+
+
+    useEffect(() => {fetchLatest();}, []);
 
 return (
   <main className="vr">
@@ -72,6 +82,29 @@ return (
 
     {error && <p className="vr-error">{error}</p>}
     {success && <p className="vr-success">{success}</p>}
+
+      <section className="vr-formSec">
+      <h2 className="vr-formTitle">Submit Vendor Request</h2>
+
+      <form className="vr-form">
+        <label className="vr-field">
+          <span className="vr-label">Instagram</span>
+          <input className="vr-input" name="instagram" value={formData.instagram}
+            onChange={handleChange} placeholder="email@.com" /></label>
+
+        <label className="vr-field">
+          <span className="vr-label">Store Name</span>
+          <input className="vr-input" name="vendorName" value={formData.vendorName}
+            onChange={handleChange} placeholder="Your brand name" /></label>
+
+        <label className="vr-field">
+          <span className="vr-label">About Store</span>
+          <textarea className="vr-textarea" name="aboutVendor" value={formData.aboutVendor} 
+          onChange={handleChange} placeholder="Tell us about your business..."/></label>
+
+        <button className="vr-btn" type="submit">Submit</button>
+      </form>
+    </section>
   </main>
 );
 }
