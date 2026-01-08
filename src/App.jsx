@@ -50,14 +50,7 @@ const App = () => {
         <Route path='/cart-item' element={<CartItem />} />
         <Route path='/my-orders' element={<MyOrders />} />
         <Route path='/order-card' element={<OrderCard />} />
-        <Route
-  path="/vendor-request"
-  element={
-    <RequireRole allowedRoles={["customer"]}>
-      <VendorRequest />
-    </RequireRole>
-  }
-/>
+        <Route path="/vendor-request" element={<RequireRole allowedRoles={["customer"]}><VendorRequest /></RequireRole>}/>
 
       </Routes>
     </>
