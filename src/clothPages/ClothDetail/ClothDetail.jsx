@@ -46,7 +46,7 @@ return (
     <h1 className="clothDetailTitle">{cloth.name}</h1>
 
         {Array.isArray(cloth.images) && cloth.images.length > 0 && (
-      <div className="clothDetailImages">
+      <div className="clothCloudImages">
         {cloth.images.map((img, index) => (
           <img
           key={index}

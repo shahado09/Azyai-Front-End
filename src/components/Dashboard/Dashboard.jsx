@@ -20,19 +20,12 @@ const Dashboard = () => {
         // Make an authenticated API call to the backend test endpoint. The JWT token is automatically sent in the request headers inside the service function
         const data = await testService.test();
 
-        // Take the response data and show message
         setMessage(data.message);
       } catch (err) {
         console.log(err)
       }
     }
-
-    // Only fetch data if user exists (i.e., someone is logged in)
-    // This prevents errors from trying to make authenticated requests without a user
-    if (user) fetchTest();
-
-  }, [user]); // only fetch if after context loads the user from localStorage
-
+    if (user) fetchTest();}, [user]); 
   return (
     <main>
       <h1>Welcome, {user.username}</h1>

@@ -25,8 +25,9 @@ const SignInForm = () => {
           email: res.user.email,
           token: res.token,
           profileId: res.user.profileId,
+          role: res.user.role
         };
-        setUser(userObj);
+        setUser(res.user);
         localStorage.setItem("user", JSON.stringify(userObj));
         localStorage.setItem("profileId", res.user.profileId);
         // بعد تسجيل الدخول → صفحة عرض البروفايل
