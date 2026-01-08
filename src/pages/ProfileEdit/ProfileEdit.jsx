@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import * as profileService from "../../services/profile";
+import './ProfileEdit.css';
 
 const ProfileEdit = () => {
   const { id } = useParams();
@@ -42,26 +43,54 @@ const ProfileEdit = () => {
   };
 
   return (
-    <main>
-      <h1>Edit Profile</h1>
+   <main className="profile-page">
+  <div className="profile-container">
+    <div className="profile-content">
+      <h2>Edit Profile</h2>
       {loading ? <p>Loading...</p> : null}
-      {message && <p style={{ color: "crimson" }}>{message}</p>}
+      {message && <p className="error-message">{message}</p>}
       <form onSubmit={handleSubmit}>
-        <div style={{ marginBottom: "10px" }}>
-          <label>Phone:</label><br />
-          <input name="phone" type="tel" value={form.phone} onChange={handleChange} required />
+        <div className="info-grid">
+          <div>
+            <label>Phone</label>
+            <input
+              className="input-field"
+              name="phone"
+              type="tel"
+              value={form.phone}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Address</label>
+            <input
+              className="input-field"
+              name="address"
+              value={form.address}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label>Avatar URL</label>
+            <input
+              className="input-field"
+              name="avatar"
+              value={form.avatar}
+              onChange={handleChange}
+              required
+            />
+          </div>
         </div>
-        <div style={{ marginBottom: "10px" }}>
-          <label>Address:</label><br />
-          <input name="address" value={form.address} onChange={handleChange} required />
-        </div>
-        <div style={{ marginBottom: "10px" }}>
-          <label>Avatar URL:</label><br />
-          <input name="avatar" value={form.avatar} onChange={handleChange} required />
-        </div>
-        <button type="submit">Save</button>
+        <button type="Save" className="edit-btn" style={{ marginTop: "20px" }}>
+          Save
+        </button>
       </form>
-    </main>
+    </div>
+  </div>
+</main>
+
   );
 };
 
