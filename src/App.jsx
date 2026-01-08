@@ -11,9 +11,9 @@ import RequireRole from './components/accessControl/RequireRole.jsx';
 
 import CartSummary from './components/CartSummary/CartSummary';
 import CartItem from './components/CartItem/CartItem';
-import Cart from './pages/CartCard.jsx';
+import Cart from './cartpages/CartCard.jsx';
 
-import MyOrders from './pages/MyOrders.jsx';
+import MyOrders from './cartpages/MyOrders.jsx';
 import OrderCard from './components/OrderCard/OrderCard.jsx';
 
 import { UserContext } from './contexts/UserContext';

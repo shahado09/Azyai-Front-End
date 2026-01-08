@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { createOrder } from "../../services/orderService";
 import { useNavigate } from "react-router";
+import './CheckoutBtn.css';
+
 
 export default function CheckoutBtn() {
   const { cartItems, totalPrice, clearCart, setMyOrders } = useContext(CartContext);
@@ -30,5 +32,5 @@ export default function CheckoutBtn() {
     
   };
 
-  return <button onClick={handleCheckout}>Checkout</button>;
+  return <button className="checkout-btn" onClick={handleCheckout}>Checkout</button>;
 }

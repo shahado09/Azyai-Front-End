@@ -1,0 +1,18 @@
+:root {
+  --primary-blue: #3f4f7a;
+  --light-gray: #e5e7eb;
+}
+
+.cart-summary {
+  margin-top: 30px;
+  padding: 20px;
+  border-top: 2px solid var(--light-gray);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.total-price {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary-blue);
+}
