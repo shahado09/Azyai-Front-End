@@ -3,6 +3,7 @@ import OrderCard from '../components/OrderCard/OrderCard.jsx'
 import { CartContext } from '../contexts/CartContext.jsx';
 import { useContext } from 'react';
 import { getMyOrders } from '../services/orderService.js';
+import './MyOrders.css';
 
 function MyOrders() {
     const {myOrders = [], setMyOrders} = useContext(CartContext);

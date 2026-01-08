@@ -9,17 +9,17 @@
   box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 }
 
-.clothDetailImages {
-  width: 80px;   /* Smaller image size */
-  height: 80px;  /* Smaller image size */
-  flex-shrink: 0;
-}
 
-.clothDetailImage {
+.cart-item-left {
+  width: 13%;
+}
+.cartImg {
   width: 100%;
-  height: 100%;
+  height: 70%;
   object-fit: cover;
   border-radius: 10px;
+  flex-shrink: 0;
+
 }
 
 
@@ -27,8 +27,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px;       /* مسافة أكبر بين النصوص */
-  margin-left: 30px; /* مسافة أكبر بين الصورة والمعلومات */
+  gap: 10px;    
+  margin-left: 30px; 
 }
 
 .item-name {
@@ -46,3 +46,5 @@
   font-size: 14px;
   color: #6b7280;
 }
+
+

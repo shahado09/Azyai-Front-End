@@ -1,4 +1,5 @@
 import React from 'react'
+import './OrderCard.css'
 
 function OrderCard({order}) {
 
