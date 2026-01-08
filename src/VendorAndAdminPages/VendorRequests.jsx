@@ -37,6 +37,37 @@ function VendorRequest() {
         setFormData(newFormData);
     };
 
+    const handleSubmit = async (event) => {
+        event.preventDefault(); 
+        setError("");
+        setSuccess("");
+
+        const instagram = formData.instagram.trim();
+        const vendorName = formData.vendorName.trim();
+        const aboutVendor = formData.aboutVendor.trim();
+
+        if (!instagram || !vendorName || !aboutVendor) {
+            setError("All fields are required");
+            return;
+        }
+
+        try {
+            setSubmitting(true);
+
+            await vendorRequestService.createRequest({instagram,vendorName,aboutVendor,});
+
+            setSuccess("Request submitted successfully");
+            setFormData({ instagram: "", vendorName: "", aboutVendor: "" });
+
+            await fetchLatest(); 
+        } catch (err) {
+            console.log(err);
+            setError("Error submitting vendor request");
+        } finally {
+            setSubmitting(false);
+        }
+};
+
 
 
     useEffect(() => {fetchLatest();}, []);
@@ -102,7 +133,7 @@ return (
           <textarea className="vr-textarea" name="aboutVendor" value={formData.aboutVendor} 
           onChange={handleChange} placeholder="Tell us about your business..."/></label>
 
-        <button className="vr-btn" type="submit">Submit</button>
+        <button className="vr-btn" type="submit" disabled={submitting}>{submitting ? "Submitting..." : "Submit"}</button>
       </form>
     </section>
   </main>
