@@ -10,32 +10,33 @@ function CartItem({ item }) {
   return (
     <div>
         <ul>
-            <li key={item._id || item.id} className="cart-item">
-                <p>{item.name}</p>
-                <p>{item.price} BD</p>
-                <p>Quantity: {item.quantity}</p>
+           <li key={item._id || item.id} className="cart-item">
+  <div className="cart-item-left">
+    {Array.isArray(item.images) && item.images.length > 0 && (
+      <img
+        src={item.images[0]}
+        alt={item.name}
+        className="clothDetailImage"
+      />
+    )}
+  </div>
 
-                {Array.isArray(item.images) && item.images.length > 0 && (
-                  <div className="clothDetailImages">
-                    <img
-                      src={item.images[0]}
-                      alt={item.name}
-                      className="clothDetailImage"
-                    />
-                  </div>
-                )}
+  <div className="cart-item-info">
+    <p className="item-name">{item.name}</p>
+    <p className="item-price">{item.price} BD</p>
+    <p className="item-quantity">Quantity: {item.quantity}</p>
+   
+  </div>
 
-                <button className="add-btn" onClick={() =>
-                addToCart(item)} >
-                    +
-                </button>
+  <div className="cart-item-actions">
+    <button className="add-btn" onClick={() => addToCart(item)}>+</button>
+    <button className="remove-btn" onClick={() => removeFromCart(item._id || item.id)}>-</button>
+  </div>
+</li>
 
-                <button className="remove-btn" onClick={() =>
-                removeFromCart(itemId)}>
-                    -
-                </button>
 
-            </li>
+
+
         </ul>
     
     </div>

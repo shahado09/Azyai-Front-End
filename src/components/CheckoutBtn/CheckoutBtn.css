@@ -1,13 +1,8 @@
-:root {
-  --primary-blue: #3f4f7a;
-}
-
 .checkout-btn {
-  margin-top: 20px;
-  background: var(--primary-blue);
+  background: #3f4f7a;
   color: white;
   border: none;
-  padding: 14px 32px;
+  padding: 12px 28px;
   border-radius: 30px;
   font-size: 16px;
   cursor: pointer;

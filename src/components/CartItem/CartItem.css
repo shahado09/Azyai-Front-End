@@ -1,39 +1,17 @@
-/* نخلي الـ li ياخذ عرض الصفحة */
 .cart-item {
-  width: 100%;
   display: flex;
-  align-items: center;
-  gap: 24px;
-  background: #faf6ee;
-  padding: 20px;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #fff;
+  padding: 18px;
   margin-bottom: 18px;
-  border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
 }
 
-/* نلغي تأثير ul داخل الكارت ايتم */
-.cart-item ul {
-  display: contents;
-  padding: 0;
-  margin: 0;
-}
-
-/* النصوص */
-.cart-item p {
-  margin: 0;
-  font-size: 15px;
-  color: #1f2937;
-}
-
-.cart-item p:first-child {
-  font-weight: 600;
-  font-size: 17px;
-}
-
-/* الصورة */
 .clothDetailImages {
-  width: 140px;
-  height: 170px;
+  width: 80px;   /* Smaller image size */
+  height: 80px;  /* Smaller image size */
   flex-shrink: 0;
 }
 
@@ -41,33 +19,30 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 10px;
 }
 
-/* نخلي النصوص بالنص */
-.cart-item p:nth-of-type(1),
-.cart-item p:nth-of-type(2),
-.cart-item p:nth-of-type(3) {
+
+.cart-item-info {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;       /* مسافة أكبر بين النصوص */
+  margin-left: 30px; /* مسافة أكبر بين الصورة والمعلومات */
 }
 
-/* الأزرار */
-.add-btn,
-.remove-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
+.item-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #111827;
 }
 
-.add-btn {
-  background: #3f4f7a;
-  color: white;
+.item-price {
+  font-size: 15px;
+  color: #374151;
 }
 
-.remove-btn {
-  background: #f3e7c2;
-  color: #3f4f7a;
+.item-quantity {
+  font-size: 14px;
+  color: #6b7280;
 }

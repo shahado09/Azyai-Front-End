@@ -8,8 +8,9 @@ function CartSummary() {
   const {totalPrice} = useContext(CartContext);
   return (
     <div className="cart-summary">
-        <div>
+        <div className='cart-footer'>
       <p className="total-price">Total Price: {totalPrice} BD</p>
+      <CheckoutBtn/>
       </div>
     </div>
   )
