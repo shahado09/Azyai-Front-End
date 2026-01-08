@@ -35,6 +35,7 @@ const NavBar = () => {
           <input type="text" placeholder="Search for...⌕" className="nav-search" />
           <Link className="icon-link" to="/wishlist">♡</Link>
           <Link className="icon-link" to="/cart">🛒</Link>
+          <Link to='/'>Dashboard</Link>
 
           {user ? (
             <>
@@ -45,12 +46,30 @@ const NavBar = () => {
             <>
               <Link to="/sign-up" className="auth-link">Sign Up</Link>
               <Link to="/sign-in" className="auth-link">Sign In</Link>
+              <Link to='/cloth'>All Cloth</Link>
+
             </>
           )}
         </div>
       </div>
-    </nav>
+      </nav>
   );
 };
 
 export default NavBar;
+
+    {/* <nav>
+      {user ? (
+        <ul>
+          <li>Welcome, {user.username}</li>
+          <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
+          <li><Link to='/cart'>Cart</Link></li>
+        </ul>
+      ) : (
+        <ul>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/sign-in'>Sign In</Link></li>
+          <li><Link to='/sign-up'>Sign Up</Link></li>
+        </ul>
+      )}
+    </nav> */}

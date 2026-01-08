@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import NavBar from "./components/NavBar/NavBar";
@@ -12,9 +11,28 @@ import ProfileEdit from "./pages/ProfileEdit/ProfileEdit";
 import ProfileCreate from "./pages/ProfileCreate/ProfileCreate";
 
 import { UserContext } from "./contexts/UserContext";
+import { useContext } from 'react';
+import {useState} from 'react';
+import RequireRole from './components/accessControl/RequireRole.jsx';
+
+import CartSummary from './components/CartSummary/CartSummary';
+import CartItem from './components/CartItem/CartItem';
+import Cart from './cartpages/CartCard.jsx';
+
+import MyOrders from './cartpages/MyOrders.jsx';
+import OrderCard from './components/OrderCard/OrderCard.jsx';
+
+import ClothList from './clothPages/ClothList/ClothList';
+import AddCloth from './clothPages/AddCloth/AddCloth';
+import ClothDetail from './clothPages/ClothDetail/ClothDetail';
+import ClothEdit from "./clothPages/ClothEdit/ClothEdit";
+import { CartContext } from './contexts/CartContext.jsx';
+import CheckoutBtn from './components/CheckoutBtn/CheckoutBtn';
 
 const App = () => {
   const { user } = useContext(UserContext); // Get user information from UserContext
+
+  const [totalPrice, setTotalPrice] = useState(0);
 
   return (
     <div className="page">
@@ -43,6 +61,18 @@ const App = () => {
               element={<Navigate to={`/profile/${user.profileId}`} replace />} // Redirect to user's profile
             />
           )}
+          <Route path='/' element={user ? <Dashboard /> : <Landing />} />
+        <Route path="/cloth" element={<ClothList />} />
+        <Route path="/cloth/new" element={ <RequireRole allowedRoles={["vendor", "admin"]}> <AddCloth /> </RequireRole>}/>
+        <Route path="/cloth/:id/edit" element={ <RequireRole allowedRoles={["vendor", "admin"]}> <ClothEdit /> </RequireRole>}/>
+        <Route path="/cloth/:id" element={<ClothDetail />} />
+        <Route path='/cart' element={<Cart totalPrice={totalPrice} setTotalPrice={setTotalPrice} />} />
+        <Route path='/cart-summary' element={<CartSummary totalPrice={totalPrice} />} />
+        <Route path='/checkout-btn' element={<CheckoutBtn />} />
+        <Route path='/cart-item' element={<CartItem />} />
+        <Route path='/my-orders' element={<MyOrders />} />
+        <Route path='/order-card' element={<OrderCard />} />
+
         </Routes>
       </div>
     </div>
