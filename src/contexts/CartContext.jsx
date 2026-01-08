@@ -13,8 +13,6 @@ export function CartProvider({ children }) {
 
 
   function addToCart(item) {
-    alert('addToCart called for ' + item.name);
-    console.log('addToCart called with:', item);
     const itemId = item._id || item.id;
     setCartItems(prev => {
       const found = prev.find(oneItem => (oneItem._id || oneItem.id) === itemId);

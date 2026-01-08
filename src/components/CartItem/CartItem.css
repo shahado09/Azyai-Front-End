@@ -1,0 +1,48 @@
+.cart-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background: #fff;
+  padding: 18px;
+  margin-bottom: 18px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+.clothDetailImages {
+  width: 80px;   /* Smaller image size */
+  height: 80px;  /* Smaller image size */
+  flex-shrink: 0;
+}
+
+.clothDetailImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+.cart-item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;       /* مسافة أكبر بين النصوص */
+  margin-left: 30px; /* مسافة أكبر بين الصورة والمعلومات */
+}
+
+.item-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #111827;
+}
+
+.item-price {
+  font-size: 15px;
+  color: #374151;
+}
+
+.item-quantity {
+  font-size: 14px;
+  color: #6b7280;
+}

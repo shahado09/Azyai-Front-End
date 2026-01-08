@@ -1,25 +1,67 @@
-import { useContext } from 'react';
-import { Link } from 'react-router';
-
-import { UserContext } from '../../contexts/UserContext';
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../../contexts/UserContext";
+import './NavBar.css'; 
 
 const NavBar = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user, logout } = useContext(UserContext);
+  const navigate = useNavigate();
 
-  const handleSignOut = () => {
-    localStorage.removeItem('token');
-    setUser(null);
+  const handleProfileClick = () => {
+    const profileId = localStorage.getItem("profileId");
+    if (profileId) {
+      navigate(`/profile/${profileId}`);
+    } else {
+      navigate("/profile/create");
+    }
   };
 
-  // The nav bar gets the user from the context which is either
-  // {username, _id} if logged in or null if not, and shows
-  // set of the correct set of links
   return (
-    <nav>
+    <nav className="navbar">
+      <div className="nav-container">
+        <div className="nav-left">
+          <Link to="/" className="logo">AZYAI</Link>
+        </div>
+
+        <div className="nav-center">
+          <Link to="/">Home</Link>
+          <Link to="/cloth">Shop</Link>
+          <Link to="/chats">Chats</Link>
+          <Link to="/about">About</Link>
+          <Link to="/terms">Terms and Conditions</Link>
+        </div>
+
+        <div className="nav-right">
+          <input type="text" placeholder="Search for...⌕" className="nav-search" />
+          <Link className="icon-link" to="/wishlist">♡</Link>
+          <Link className="icon-link" to="/cart">🛒</Link>
+          <Link to='/'>Dashboard</Link>
+
+          {user ? (
+            <>
+              <button onClick={handleProfileClick} className="icon-link">👤</button>
+              <button onClick={logout} className="auth-link">Sign Out</button>
+            </>
+          ) : (
+            <>
+              <Link to="/sign-up" className="auth-link">Sign Up</Link>
+              <Link to="/sign-in" className="auth-link">Sign In</Link>
+              <Link to='/cloth'>All Cloth</Link>
+
+            </>
+          )}
+        </div>
+      </div>
+      </nav>
+  );
+};
+
+export default NavBar;
+
+    {/* <nav>
       {user ? (
         <ul>
           <li>Welcome, {user.username}</li>
-          <li><Link to='/'>Dashboard</Link></li>
           <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
           <li><Link to='/cart'>Cart</Link></li>
         </ul>
@@ -28,11 +70,6 @@ const NavBar = () => {
           <li><Link to='/'>Home</Link></li>
           <li><Link to='/sign-in'>Sign In</Link></li>
           <li><Link to='/sign-up'>Sign Up</Link></li>
-          <li><Link to='/cloth'>All Cloth</Link></li>
         </ul>
       )}
-    </nav>
-  );
-};
-
-export default NavBar;
+    </nav> */}

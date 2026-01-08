@@ -1,0 +1,15 @@
+.checkout-btn {
+  background: #3f4f7a;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.checkout-btn:hover {
+  background: #2f3d66;
+  transform: translateY(-2px);
+}

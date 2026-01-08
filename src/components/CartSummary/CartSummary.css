@@ -1,0 +1,19 @@
+.cart-footer {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between; /* يخلي التوتال يسار والزر يمين */
+  align-items: center;
+  padding: 0 20px;
+  background: #fff;
+  border-top: 2px solid #e5e7eb;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.08);
+}
+
+.total-price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #3f4f7a;
+}
