@@ -8,6 +8,7 @@ import SignInForm from './components/SignInForm/SignInForm';
 import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
 import RequireRole from './components/accessControl/RequireRole.jsx';
+import VendorRequest from './VendorAndAdminPages/VendorRequests.jsx';
 
 import CartSummary from './components/CartSummary/CartSummary';
 import CartItem from './components/CartItem/CartItem';
@@ -49,6 +50,14 @@ const App = () => {
         <Route path='/cart-item' element={<CartItem />} />
         <Route path='/my-orders' element={<MyOrders />} />
         <Route path='/order-card' element={<OrderCard />} />
+        <Route
+  path="/vendor-request"
+  element={
+    <RequireRole allowedRoles={["customer"]}>
+      <VendorRequest />
+    </RequireRole>
+  }
+/>
 
       </Routes>
     </>
