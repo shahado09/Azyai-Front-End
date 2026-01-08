@@ -1,64 +1,32 @@
 import axios from "axios";
 
+// Set the base URL for authentication routes
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/auth`;
 
+// Sign-up function to create a new user
+const signUp = async (formData) => {
+  const res = await axios.post(`${BASE_URL}/sign-up`, formData); // Make POST request to sign-up
+  const { token, user } = res.data; // Destructure token and user from response
 
-async function signUp(formData) {
-  try {
-    const response = await axios.post(`${BASE_URL}/sign-up`, formData);
-    const { token, profileId } = response.data;
+  // Store token and user information in local storage
+  localStorage.setItem("token", token);
+  localStorage.setItem("userId", user._id);
+  localStorage.setItem("profileId", user.profileId);
 
-    localStorage.setItem("token", token);
+  return { token, user }; // Return token and user data
+};
 
-    let user = null;
-    try {
-      const tokenParts = token.split(".");
-      if (tokenParts.length === 3) {
-        const encodedPayload = tokenParts[1];
-        const decodedPayload = window.atob(encodedPayload);
-        const parsedPayload = JSON.parse(decodedPayload);
-        user = parsedPayload; 
-      }
-    } catch (err) {
-      console.error("Invalid token format:", err);
-    }
+// Sign-in function to log in an existing user
+const signIn = async (formData) => {
+  const res = await axios.post(`${BASE_URL}/sign-in`, formData); // Make POST request to sign-in
+  const { token, user } = res.data; // Destructure token and user from response
 
-    
-    return { token, profileId, user };
-  } catch (err) {
-    console.error("Error signing up:", err);
-    throw err;
-  }
-}
+  // Store token and user information in local storage
+  localStorage.setItem("token", token);
+  localStorage.setItem("userId", user._id);
+  localStorage.setItem("profileId", user.profileId);
 
+  return { token, user }; // Return token and user data
+};
 
-async function signIn(formData) {
-  try {
-    const response = await axios.post(`${BASE_URL}/sign-in`, formData);
-    const { token, profileId } = response.data;
-
-   
-    localStorage.setItem("token", token);
-
-    let user = null;
-    try {
-      const tokenParts = token.split(".");
-      if (tokenParts.length === 3) {
-        const encodedPayload = tokenParts[1];
-        const decodedPayload = window.atob(encodedPayload);
-        const parsedPayload = JSON.parse(decodedPayload);
-        user = parsedPayload; 
-      }
-    } catch (err) {
-      console.error("Invalid token format:", err);
-    }
-
-    
-    return { token, profileId, user };
-  } catch (err) {
-    console.error("Error signing in:", err);
-    throw err;
-  }
-}
-
-export { signUp, signIn };
+export { signUp, signIn }; // Export signUp and signIn functions

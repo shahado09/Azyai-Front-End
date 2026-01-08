@@ -1,10 +1,20 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import './NavBar.css'; 
 
 const NavBar = () => {
   const { user, logout } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const handleProfileClick = () => {
+    const profileId = localStorage.getItem("profileId");
+    if (profileId) {
+      navigate(`/profile/${profileId}`);
+    } else {
+      navigate("/profile/create");
+    }
+  };
 
   return (
     <nav className="navbar">
@@ -28,14 +38,8 @@ const NavBar = () => {
 
           {user ? (
             <>
+              <button onClick={handleProfileClick} className="icon-link">👤</button>
               <button onClick={logout} className="auth-link">Sign Out</button>
-              <Link to={`/profile/${user._id}`}>
-                <img
-                  className="profile-img"
-                  src="https://th.bing.com/th/id/OIP.vIq_QWTLmuEoct13lW83UwAAAA?w=183&h=183&c=7&r=0&o=7&cb=ucfimg2&dpr=1.3&pid=1.7&rm=3&ucfimg=1"
-                  alt="profile"
-                />
-              </Link>
             </>
           ) : (
             <>

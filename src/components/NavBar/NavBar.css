@@ -2,29 +2,29 @@
   box-sizing: border-box;
 }
 
-html,
-body {
+html, body, #root {
+  height: 100%;
   width: 100%;
-  margin: 0;
-  padding: 0;
   overflow-x: hidden;
   font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   background: white;
   color: black;
 }
 
 .page {
-  width: 100%;
-  min-height: 100vh;
-  padding: 0;
-  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+
 .navbar {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
+  width: 100%;
   background-color: #3b4f7f;
 }
+
 
 .nav-container {
   width: 100%;

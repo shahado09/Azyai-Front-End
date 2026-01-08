@@ -4,6 +4,7 @@
 
 html,
 body {
+  height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -14,11 +15,11 @@ body {
 }
 
 .page {
-  width: 100%;
-  min-height: 100vh;
-  padding: 40px 0;
-  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
 
 .logo-box {
   width: 100vw;

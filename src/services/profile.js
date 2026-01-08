@@ -1,71 +1,66 @@
-import axios from 'axios';
+import axios from "axios";
 
-const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/profiles`;
+// Set the base URL for profile routes
+const BASE_URL = "http://localhost:3000/profile";
 
-
-const index = async (token) => {
+// Function to create a new profile
+export const create = async (formData) => {
   try {
-    const response = await axios.get(BASE_URL, {
-      headers: { Authorization: `Bearer ${token}` },
+    const token = localStorage.getItem("token"); // Get token from local storage
+    const res = await axios.post(BASE_URL, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`, // Set authorization header
+        "Content-Type": "application/json", // Set content type
+      },
     });
-    return response.data.profiles;
-  } catch (error) {
-    console.log(error);
+    return res.data; // Return the created profile data
+  } catch (err) {
+    console.error("Error in profile creation service:", err);
+    throw err; // Throw error for handling in the calling function
   }
 };
 
-
-const show = async (id, token) => {
+// Function to show a profile by ID
+export const show = async (id) => {
   try {
-    const response = await axios.get(`${BASE_URL}/${id}`, {
-      headers: { Authorization: `Bearer ${token}` },
+    const token = localStorage.getItem("token"); // Get token from local storage
+    const res = await axios.get(`${BASE_URL}/${id}`, {
+      headers: { Authorization: `Bearer ${token}` }, // Set authorization header
     });
-    return response.data;
-  } catch (error) {
-    console.log(error);
+    return res.data; // Return the profile data
+  } catch (err) {
+    console.error("Error in profile show service:", err);
+    throw err; // Throw error for handling in the calling function
   }
 };
 
-
-const create = async (formData, token) => {
+// Function to update an existing profile
+export const update = async (id, formData) => {
   try {
-    const response = await axios.post(BASE_URL, formData, {
-      headers: { Authorization: `Bearer ${token}` },
+    const token = localStorage.getItem("token"); // Get token from local storage
+    const res = await axios.put(`${BASE_URL}/${id}`, formData, {
+      headers: {
+        Authorization: `Bearer ${token}`, // Set authorization header
+        "Content-Type": "application/json", // Set content type
+      },
     });
-    return response.data;
-  } catch (error) {
-    console.log(error);
+    return res.data; // Return the updated profile data
+  } catch (err) {
+    console.error("Error in profile update service:", err);
+    throw err; // Throw error for handling in the calling function
   }
 };
 
-
-const update = async (profileId, formData, token) => {
+// Function to delete a profile by ID
+export const deleteOne = async (id) => {
   try {
-    const response = await axios.put(`${BASE_URL}/${profileId}`, formData, {
-      headers: { Authorization: `Bearer ${token}` },
+    const token = localStorage.getItem("token"); // Get token from local storage
+    const res = await axios.delete(`${BASE_URL}/${id}`, {
+      headers: { Authorization: `Bearer ${token}` }, // Set authorization header
     });
-    return response.data;
-  } catch (error) {
-    console.log(error);
+    return res.data; // Return success message or data
+  } catch (err) {
+    console.error("Error in profile delete service:", err);
+    throw err; // Throw error for handling in the calling function
   }
-};
-
-// حذف بروفايل
-const deleteOne = async (profileId, token) => {
-  try {
-    const response = await axios.delete(`${BASE_URL}/${profileId}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    });
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export {
-  index,
-  show,
-  create,
-  update,
-  deleteOne
 };
