@@ -16,7 +16,7 @@ function CartItem({ item }) {
       <img
         src={item.images[0]}
         alt={item.name}
-        className="clothDetailImage"
+        className="cartImg"
       />
     )}
   </div>
