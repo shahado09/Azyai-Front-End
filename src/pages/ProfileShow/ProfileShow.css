@@ -1,0 +1,125 @@
+.profile-page {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;       
+  min-height: 0;
+  padding: 20px 0;
+  background: #f4f6fb;
+  min-height: 100vh;
+}
+
+.profile-page .profile-container {
+  width: 100%;
+  max-width: 1200px; 
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+  background: white;
+  min-height: 100vh;
+}
+
+.profile-sidebar {
+  width: 260px;
+  background: #f7f8fc;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 30px;
+}
+
+.sidebar-btn {
+  width: 100%;
+  height: 48px;
+  border-radius: 12px;
+  border: none;
+  margin-bottom: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.sidebar-btn.edit {
+  background: #eef2ff;
+  color: #4338ca;
+}
+
+.sidebar-btn.delete {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.sidebar-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+.profile-content {
+  flex: 1;
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-content h2 {
+  margin-bottom: 30px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  max-width: 700px;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #f3f4f6;
+  color: #374151;
+  font-weight: 500;
+}
+
+input:disabled {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .profile-page .profile-container {
+    flex-direction: column;
+  }
+
+  .profile-sidebar {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}

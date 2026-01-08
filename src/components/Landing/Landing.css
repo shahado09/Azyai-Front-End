@@ -1,0 +1,116 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+  background: white;
+  color: black;
+}
+
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.logo-box {
+  width: 100vw;
+  margin: 0;
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.logo-img {
+  width: 100%;
+  height: 400px;
+  display: block;
+  object-fit: cover;
+}
+
+.home-title {
+  font-size: 32px;
+  margin: 24px 0 10px;
+  color: #111827;
+  text-align: center;
+}
+
+.home-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.vendor-link {
+  display: block;
+  margin-bottom: 18px;
+  color: #3b4f7f;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+}
+
+.vendor-link:hover {
+  color: #facc15;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+  justify-content: center;
+}
+
+.All-Clothes-btn {
+  background: #3b4f7f;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.All-Clothes-btn:hover {
+  background: #2f4066;
+}
+
+.add-new-cloth-btn {
+  background: #facc15;
+  color: #111827;
+  padding: 12px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.add-new-cloth-btn:hover {
+  background: #f4c430;
+}
+
+.review-vendor-requests-btn {
+  background: #111827;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.review-vendor-requests-btn:hover {
+  background: #000000;
+}
