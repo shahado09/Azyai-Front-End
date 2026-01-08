@@ -15,7 +15,6 @@ function VendorRequest() {
 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
     const fetchLatest = async () => {
         try {
             setLoading(true);
