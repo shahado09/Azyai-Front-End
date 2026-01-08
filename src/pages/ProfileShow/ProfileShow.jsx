@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import * as profileService from "../../services/profile";
 
+
 const ProfileShow = () => {
   const { id } = useParams();
   const navigate = useNavigate();
