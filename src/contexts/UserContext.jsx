@@ -1,33 +1,52 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from "react";
+import jwt_decode from "jwt-decode";
 
 const UserContext = createContext();
 
+// Function to extract user information from the JWT token
 const getUserFromToken = () => {
-  const token = localStorage.getItem('token');
-
+  const token = localStorage.getItem("token");
   if (!token) return null;
 
-  const tokenParts = token.split('.');
-  const encodedPayload = tokenParts[1];
-  const decodedPayload = atob(encodedPayload)
-  const parsedPayload = JSON.parse(decodedPayload)
-  const user = parsedPayload.payload
-
-  return user
+  try {
+    const decoded = jwt_decode(token);
+    return {
+      _id: decoded._id || decoded.id,
+      username: decoded.username || "",
+      email: decoded.email || "",
+      profileId: decoded.profileId || null,
+      token,
+    };
+  } catch (err) {
+    console.error("Error decoding token:", err);
+    return null;
+  }
 };
 
-function UserProvider({ children }) {
-  // Here we extract the user from the token if there is a token
-  // otherwise we set it to null
+const UserProvider = ({ children }) => {
+  // State to hold the user data
   const [user, setUser] = useState(getUserFromToken());
 
-  const value = { user, setUser };
+  useEffect(() => {
+    // Update user state when local storage changes
+    const handleStorageChange = () => setUser(getUserFromToken());
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
+  }, []);
+
+  // Function to log out the user
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("profileId");
+    setUser(null); // Reset user state
+  };
 
   return (
-    <UserContext.Provider value={value}>
-      {children}
+    <UserContext.Provider value={{ user, setUser, logout }}>
+      {children} {/* Render child components */}
     </UserContext.Provider>
   );
 };
 
-export { UserProvider, UserContext };
+export { UserContext, UserProvider };

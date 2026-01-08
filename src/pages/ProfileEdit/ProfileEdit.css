@@ -1,0 +1,42 @@
+.profile-edit-page .profile-content h2 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.profile-edit-page input {
+  background: #ffffff;
+  border: 1px solid #c7d2fe;
+}
+
+.profile-edit-page input:focus {
+  outline: none;
+  border-color: #4338ca;
+  box-shadow: 0 0 0 3px rgba(67, 56, 202, 0.15);
+}
+
+.profile-edit-page .sidebar-btn.edit {
+  background: linear-gradient(135deg, #4338ca, #6366f1);
+  color: white;
+}
+
+.profile-edit-page .sidebar-btn.edit:hover {
+  opacity: 0.95;
+  transform: translateY(-2px);
+}
+
+.profile-edit-page .sidebar-btn.delete {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.profile-edit-page .sidebar-btn.delete:hover {
+  background: #e5e7eb;
+}
+
+.profile-edit-page .avatar {
+  border: 3px solid #6366f1;
+}
+
+.profile-edit-page .info-grid {
+  max-width: 750px;
+}
