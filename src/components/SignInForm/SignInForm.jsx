@@ -18,6 +18,7 @@ const SignInForm = () => {
     e.preventDefault();
     try {
       const res = await authService.signIn(formData);
+      // console.log(res.user.role)
       if (res?.token && res?.user) {
         const userObj = {
           _id: res.user._id,
@@ -27,6 +28,7 @@ const SignInForm = () => {
           profileId: res.user.profileId,
           role: res.user.role
         };
+        // console.log(userObj)
         setUser(res.user);
         localStorage.setItem("user", JSON.stringify(userObj));
         localStorage.setItem("profileId", res.user.profileId);
@@ -38,6 +40,12 @@ const SignInForm = () => {
       console.error(err);
     }
   };
+  const handleLogin = async () => {
+  const res = await authService.signIn(formData);
+
+  localStorage.setItem("token", res.token); // إذا عندج توكن
+  setUser(res.user); // 🔥 هذا يحفظ باللوكل ستورج + يثبت بعد الريفرش
+};
 
   return (
     <main>

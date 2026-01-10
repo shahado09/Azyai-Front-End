@@ -4,6 +4,8 @@ import { Link, useParams, useNavigate } from "react-router";
 import { useContext } from "react";
 import { CartContext } from "../../contexts/CartContext";
 import { UserContext } from "../../contexts/UserContext";
+    const user = localStorage.getItem("user");
+    console.log(user)
 
 import "./ClothDetail.css";
 
@@ -40,7 +42,7 @@ function ClothDetail(props) {
   const canEditDelete =
   user?.role === "admin" ||
   (user?.role === "vendor" && String(cloth.userId) === String(user?._id));
-
+//  console.log(user)
 return (
   <div className="clothDetailPage">
     <h1 className="clothDetailTitle">{cloth.name}</h1>

@@ -1,0 +1,251 @@
+
+.vr {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 18px 80px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.vr-title {
+  font-size: clamp(26px, 3vw, 42px);
+  margin: 8px 0 26px;
+  line-height: 1.1;
+  letter-spacing: 0.2px;
+  text-align: center;
+}
+
+
+.vr-loading,
+.vr-empty {
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 15.5px;
+  opacity: 0.85;
+}
+
+.vr-status {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 6px;
+}
+
+.vr-status-title {
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin: 0 0 12px;
+}
+
+.vr-card {
+  width: 100%;
+  max-width: 520px;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.92),
+    rgba(255, 255, 255, 0.78)
+  );
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.06);
+  padding: 16px 16px;
+  backdrop-filter: blur(10px);
+}
+
+.vr-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(15, 23, 42, 0.10);
+  margin: 0;
+}
+
+.vr-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.vr-label {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+
+.vr-value {
+  font-size: 15.5px;
+  font-weight: 650;
+  opacity: 0.95;
+  text-align: right;
+  word-break: break-word;
+}
+
+.vr-row:first-child .vr-value {
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(15, 23, 42, 0.05);
+  color: rgba(15, 23, 42, 0.85);
+}
+
+.vr-note {
+  margin: 12px 0 0;
+  padding: 12px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(220, 38, 38, 0.18);
+  background: rgba(220, 38, 38, 0.06);
+}
+
+
+.vr-error,
+.vr-success {
+  width: 100%;
+  max-width: 520px;
+  margin: 14px 0 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  font-weight: 700;
+  text-align: center;
+}
+
+.vr-error {
+  border-color: rgba(220, 38, 38, 0.22);
+  background: rgba(220, 38, 38, 0.08);
+  color: rgba(185, 28, 28, 0.95);
+}
+
+.vr-success {
+  border-color: rgba(34, 197, 94, 0.22);
+  background: rgba(34, 197, 94, 0.10);
+  color: rgba(22, 163, 74, 0.95);
+}
+
+.vr-formSec {
+  width: 100%;
+  max-width: 520px;
+  margin-top: 28px;
+
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.05);
+}
+
+.vr-formTitle {
+  margin: 0 0 12px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  text-align: center;
+}
+
+
+.vr-form {
+  display: grid;
+  gap: 12px;
+}
+
+.vr-field {
+  display: grid;
+  gap: 8px;
+}
+
+.vr-input,
+.vr-textarea {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 12px 12px;
+  font-size: 15px;
+  outline: none;
+  transition: box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.vr-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.vr-input::placeholder,
+.vr-textarea::placeholder {
+  opacity: 0.6;
+}
+
+.vr-input:focus,
+.vr-textarea:focus {
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+
+.vr-btn {
+  justify-self: center;
+  border: none;
+  border-radius: 14px;
+  padding: 11px 16px;
+  font-weight: 900;
+  cursor: pointer;
+  color: white;
+  background-color:rgb(31, 31, 141);
+
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.16);
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+
+.vr-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(37, 99, 235, 0.22);
+}
+
+.vr-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.16);
+}
+
+.vr-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+
+@media (max-width: 560px) {
+  .vr-card,
+  .vr-formSec,
+  .vr-error,
+  .vr-success,
+  .vr-loading,
+  .vr-empty,
+  .vr-status-title {
+    max-width: 100%;
+  }
+
+  .vr-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vr-value {
+    text-align: left;
+  }
+}

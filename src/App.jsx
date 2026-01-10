@@ -64,7 +64,7 @@ const App = () => {
             />
           )}
           <Route path='/' element={user ? <Dashboard /> : <Landing />} />
-        <Route path="/vendor-request" element={<RequireRole allowedRoles={["customer"]}><VendorRequest /></RequireRole>}/>
+        <Route path="/vendor-request" element={<VendorRequest />}/>
         <Route path="/cloth" element={<ClothList />} />
         <Route path="/cloth/new" element={ <RequireRole allowedRoles={["vendor", "admin"]}> <AddCloth /> </RequireRole>}/>
         <Route path="/cloth/:id/edit" element={ <RequireRole allowedRoles={["vendor", "admin"]}> <ClothEdit /> </RequireRole>}/>
