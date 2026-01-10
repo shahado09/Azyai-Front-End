@@ -86,6 +86,7 @@ const ClothCreate = () => {
         <label className="clothCreateLabel" htmlFor="name">Name</label>
         <input  className="clothCreateInput" id="name" name="name" type="text" value={formState.name} onChange={handleChange} />
 
+
         <label className="clothCreateLabel" htmlFor="description">Description</label>
         <input  className="clothCreateInput" id="description" name="description" type="text" value={formState.description} onChange={handleChange} />
 

@@ -59,7 +59,7 @@ return (
         ))}
       </div>
     )}
-
+    <p className="card-sku"> {cloth.sku}</p>
     <p className="clothDetailDescription">{cloth.description}</p>
 
     <div className="clothDetailInfo">

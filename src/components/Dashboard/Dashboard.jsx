@@ -33,6 +33,8 @@ const Dashboard = () => {
         This is the dashboard page where you can test your authentication.
       </p>
       <p><strong>{message}</strong></p>
+
+      
     </main>
   );
 };

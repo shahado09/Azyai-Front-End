@@ -75,6 +75,7 @@ const App = () => {
         <Route path='/cart-item' element={<CartItem />} />
         <Route path='/my-orders' element={<MyOrders />} />
         <Route path='/order-card' element={<OrderCard />} />
+        <Route path='/landing' element={<Landing />} />
         <Route path="/admin/vendor-requests" element={ <RequireRole allowedRoles={["admin"]}> <AdminVendorRequests /> </RequireRole>}/>
  
         </Routes>

@@ -24,7 +24,7 @@ const NavBar = () => {
         </div>
 
         <div className="nav-center">
-          <Link to="/">Home</Link>
+          <Link to="/landing">Home</Link>
           <Link to="/cloth">Shop</Link>
           <Link to="/chats">Chats</Link>
           <Link to="/about">About</Link>
@@ -35,8 +35,6 @@ const NavBar = () => {
           <input type="text" placeholder="Search for...⌕" className="nav-search" />
           <Link className="icon-link" to="/wishlist">♡</Link>
           <Link className="icon-link" to="/cart">🛒</Link>
-          <Link to='/'>Dashboard</Link>
-
           {user ? (
             <>
               <button onClick={handleProfileClick} className="icon-link">👤</button>
@@ -46,7 +44,6 @@ const NavBar = () => {
             <>
               <Link to="/sign-up" className="auth-link">Sign Up</Link>
               <Link to="/sign-in" className="auth-link">Sign In</Link>
-              <Link to='/cloth'>All Cloth</Link>
 
             </>
           )}
