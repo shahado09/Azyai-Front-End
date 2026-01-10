@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import * as authService from "../../services/authService";
 import { UserContext } from "../../contexts/UserContext";
+import "./SignInForm.css";
 
 const SignInForm = () => {
   const navigate = useNavigate();
@@ -29,8 +30,7 @@ const SignInForm = () => {
         setUser(userObj);
         localStorage.setItem("user", JSON.stringify(userObj));
         localStorage.setItem("profileId", res.user.profileId);
-        // بعد تسجيل الدخول → صفحة عرض البروفايل
-        navigate(`/profile/${res.user.profileId}`);
+        navigate(`/`);
       }
     } catch (err) {
       setMessage("Invalid credentials");
@@ -39,18 +39,24 @@ const SignInForm = () => {
   };
 
   return (
-    <main>
+  <main className="signin-page">
+  <div className="signin-container">
+    <div className="signin-content">
       <h1>Sign In</h1>
-      {message && <p style={{ color: "crimson" }}>{message}</p>}
+      {message && <p className="error-message">{message}</p>}
       <form onSubmit={handleSubmit}>
+        <label htmlFor="Username">Username:</label>
         <input
+          className="input-field"
           name="username"
           placeholder="Username"
           value={formData.username}
           onChange={handleChange}
           required
         />
+        <label htmlFor="password">Password:</label>
         <input
+          className="input-field"
           name="password"
           type="password"
           placeholder="Password"
@@ -58,9 +64,11 @@ const SignInForm = () => {
           onChange={handleChange}
           required
         />
-        <button type="submit">Sign In</button>
+        <button type="submit" className="signin-btn">Sign In</button>
       </form>
-    </main>
+    </div>
+  </div>
+</main>
   );
 };
 

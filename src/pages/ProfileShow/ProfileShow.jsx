@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import * as profileService from "../../services/profile";
-
+import './ProfileShow.css'
 
 const ProfileShow = () => {
   const { id } = useParams();
@@ -33,14 +33,33 @@ const ProfileShow = () => {
   if (!profile) return <h1>Loading...</h1>;
 
   return (
-    <div>
-      <img src={profile.avatar} alt="Profile avatar" />
-      <p>{profile.phone}</p>
-      <p>{profile.address}</p>
-      <Link to={`/profile/${id}/edit`}>Edit</Link>
-      <button onClick={handleDelete}>Delete</button>
-      <div style={{ marginTop: "10px" }}>
-        <button onClick={() => navigate('/dashboard')}>Dashboard</button>
+    <div className="profile-page">
+      <div className="profile-container">
+        {/* Sidebar */}
+        <div className="profile-sidebar">
+          <div className="avatar-wrapper">
+            <img src={profile.avatar} alt="Profile avatar" className="avatar" />
+          </div>
+          <button onClick={() => navigate('/dashboard')} className="sidebar-btn edit">Dashboard</button>
+          <button onClick={() => navigate('/dashboard')} className="sidebar-btn edit">Vender Request</button>
+          <Link to={`/profile/${id}/edit`} className="sidebar-btn edit">Edit Profile</Link>
+          <button onClick={handleDelete} className="sidebar-btn delete">Delete Profile</button>
+        </div>
+
+        {/* Content */}
+        <div className="profile-content">
+          <h2>Profile Information</h2>
+          <div className="info-grid">
+            <div>
+              <label>Phone</label>
+              <input type="text" value={profile.phone} disabled />
+            </div>
+            <div>
+              <label>Address</label>
+              <input type="text" value={profile.address} disabled />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import * as authService from "../../services/authService";
 import { UserContext } from "../../contexts/UserContext";
+import "./SignUpForm.css";
 
 const SignUpForm = () => {
   const navigate = useNavigate();
@@ -68,62 +69,72 @@ const SignUpForm = () => {
   };
 
   return (
-    <main>
-      <h1>Sign Up</h1>
-      {message && <p style={{ color: "crimson" }}>{message}</p>}
+<main className="signup-page">
+  <div className="signup-container">
+    <div className="signup-content">
+      <h2>Sign Up</h2>
+      {message && <p className="error-message">{message}</p>}
 
       <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={formData.username}
-            name="username"
-            onChange={handleChange}
-            required
-          />
+        <div className="form-grid">
+          <div>
+            <label htmlFor="username">Username:</label>
+            <input
+              className="input-field"
+              type="text"
+              id="username"
+              value={formData.username}
+              name="username"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="email">Email:</label>
+            <input
+              className="input-field"
+              type="email"
+              id="email"
+              value={formData.email}
+              name="email"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="password">Password:</label>
+            <input
+              className="input-field"
+              type="password"
+              id="password"
+              value={formData.password}
+              name="password"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label htmlFor="passwordConf">Confirm Password:</label>
+            <input
+              className="input-field"
+              type="password"
+              id="passwordConf"
+              value={formData.passwordConf}
+              name="passwordConf"
+              onChange={handleChange}
+              required
+            />
+          </div>
         </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            value={formData.email}
-            name="email"
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={formData.password}
-            name="password"
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="passwordConf">Confirm Password:</label>
-          <input
-            type="password"
-            id="passwordConf"
-            value={formData.passwordConf}
-            name="passwordConf"
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <button type="submit" disabled={isFormInvalid()}>
+        <div style={{ marginTop: "20px" }}>
+          <button type="submit" className="sidebar-btn edit" disabled={isFormInvalid()}>
             Sign Up
           </button>
         </div>
       </form>
-    </main>
+    </div>
+  </div>
+</main>
   );
 };
 
