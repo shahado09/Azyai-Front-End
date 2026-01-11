@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import * as clothService from "../../services/clothService";
 import CloudinaryMultiUpload from "../../components/CloudinaryMultiUpload/CloudinaryMultiUpload";
 import { UserContext } from "../../contexts/UserContext";
+import "./AddCloth.css";
 
 
 const ClothCreate = () => {
@@ -84,6 +85,7 @@ const ClothCreate = () => {
 
         <label className="clothCreateLabel" htmlFor="name">Name</label>
         <input  className="clothCreateInput" id="name" name="name" type="text" value={formState.name} onChange={handleChange} />
+
 
         <label className="clothCreateLabel" htmlFor="description">Description</label>
         <input  className="clothCreateInput" id="description" name="description" type="text" value={formState.description} onChange={handleChange} />

@@ -40,8 +40,10 @@ const ProfileShow = () => {
           <div className="avatar-wrapper">
             <img src={profile.avatar} alt="Profile avatar" className="avatar" />
           </div>
-          <button onClick={() => navigate('/dashboard')} className="sidebar-btn edit">Dashboard</button>
-          <button onClick={() => navigate('/dashboard')} className="sidebar-btn edit">Vender Request</button>
+          <button onClick={() => navigate('/admin/vendor-requests')} className="sidebar-btn edit">Dashboard</button>
+          <button onClick={() => navigate('/vendor-request')} className="sidebar-btn edit">Vender Request</button>
+          <button onClick={() => navigate('/my-clothes')} className="sidebar-btn edit">My Clothes</button>
+          <button onClick={() => navigate('/my-orders')} className="sidebar-btn edit">My Orders</button>
           <Link to={`/profile/${id}/edit`} className="sidebar-btn edit">Edit Profile</Link>
           <button onClick={handleDelete} className="sidebar-btn delete">Delete Profile</button>
         </div>

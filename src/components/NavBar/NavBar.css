@@ -1,33 +1,13 @@
-* {
-  box-sizing: border-box;
-}
-
-html, body, #root {
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: white;
-  color: black;
-}
-
-.page {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 
 .navbar {
   width: 100%;
-  background-color: #3b4f7f;
+  background: #3b4f7f;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
 }
 
-
 .nav-container {
-  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,45 +16,51 @@ html, body, #root {
 
 .logo {
   color: white;
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
   text-decoration: none;
 }
+
 
 .nav-center {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 22px;
 }
 
 .nav-center a {
-  color: white;
+  color: #e5e7eb;
   text-decoration: none;
   font-size: 14px;
+  font-weight: 600;
 }
 
 .nav-center a:hover {
   color: #e8c456;
 }
 
+
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
+
 .nav-search {
-  width: 150px;
+  width: 170px;
   padding: 7px 12px;
-  border-radius: 4px;
+  border-radius: 999px;
   border: none;
   outline: none;
   font-size: 13px;
+  background: #f8fafc;
 }
 
+
 .icon-link {
-  color: white;
+  color: #f1f5f9;
   font-size: 18px;
   text-decoration: none;
 }
@@ -83,20 +69,36 @@ html, body, #root {
   color: #e8c456;
 }
 
+
 .auth-link {
-  color: white;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
   text-decoration: none;
-  font-size: 14px;
+
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.25);
 }
 
 .auth-link:hover {
-  color: #e8c456;
+  background: #e8c456;
+  color: #1f2937;
 }
 
+
 .profile-img {
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   object-fit: cover;
   cursor: pointer;
+
+  border: 2px solid rgba(255,255,255,0.7);
+  background: white;
+}
+
+.profile-img:hover {
+  border-color: #e8c456;
 }

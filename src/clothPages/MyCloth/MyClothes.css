@@ -1,0 +1,51 @@
+.my-page {
+  padding: 24px;
+}
+
+.my-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.my-title {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.my-new-btn {
+  background: rgb(65, 65, 133);
+  color: #fff;
+  border: 0;
+  border-radius: 12px;
+  padding: 10px 16px;
+  font-weight: 800;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.my-new-btn:hover {
+  opacity: 0.9;
+}
+
+
+.my-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+  align-items: start;
+}
+
+
+.myclothes-loading,
+.myclothes-error {
+  padding: 24px;
+}
+
+
+
+
+

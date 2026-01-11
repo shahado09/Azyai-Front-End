@@ -29,7 +29,7 @@ const ClothCard = ({ cloth }) => {
 
       <div className="card-body">
         <h3 className="card-title">{cloth.name}</h3>
-
+        <p className="card-sku"> {cloth.sku}</p>
         <div className="card-price">
           {cloth.salePrice ? (
             <>

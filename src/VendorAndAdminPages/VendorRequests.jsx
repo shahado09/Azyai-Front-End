@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import * as vendorRequestService from "../services/vendor";
+import "./VendorRequests.css";
 
 function VendorRequest() {
   const [latest, setLatest] = useState(null);

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import * as adminVendorService from "../services/admin";
-
+import "./AdminVendorRequests.css";
 function AdminVendorRequests() {
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);

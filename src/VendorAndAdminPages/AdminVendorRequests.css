@@ -1,0 +1,202 @@
+.avr {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 18px 80px;
+}
+
+.avr-title {
+  font-size: clamp(26px, 3vw, 42px);
+  margin: 6px 0 18px;
+  line-height: 1.1;
+  letter-spacing: 0.2px;
+}
+
+.avr-loading,
+.avr-empty {
+  padding: 14px 0;
+  font-size: 15.5px;
+  opacity: 0.85;
+}
+
+.avr-error {
+  margin: 12px 0 16px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(220, 38, 38, 0.22);
+  background: rgba(220, 38, 38, 0.08);
+  color: rgba(185, 28, 28, 0.95);
+  font-weight: 700;
+}
+
+.avr-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.06);
+}
+
+
+.avr-table thead th {
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.96),
+    rgba(255, 255, 255, 0.85)
+  );
+}
+
+
+.avr-table tbody td {
+  padding: 14px 12px;
+  vertical-align: top;
+  border-bottom: 1px dashed rgba(15, 23, 42, 0.10);
+  font-size: 14.5px;
+  opacity: 0.95;
+}
+
+.avr-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+.avr-table tbody tr:nth-child(even) td {
+  background: rgba(15, 23, 42, 0.015);
+}
+
+.avr-table tbody tr:hover td {
+  background: rgba(37, 99, 235, 0.04);
+}
+
+
+.avr-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  background: rgba(15, 23, 42, 0.05);
+  color: rgba(15, 23, 42, 0.85);
+}
+
+
+.avr-pending {
+  background: rgba(250, 204, 21, 0.18);
+  border-color: rgba(250, 204, 21, 0.35);
+  color: rgba(161, 98, 7, 0.95);
+}
+
+.avr-approved {
+  background: rgba(34, 197, 94, 0.14);
+  border-color: rgba(34, 197, 94, 0.30);
+  color: rgba(22, 163, 74, 0.95);
+}
+
+.avr-rejected {
+  background: rgba(220, 38, 38, 0.12);
+  border-color: rgba(220, 38, 38, 0.26);
+  color: rgba(185, 28, 28, 0.95);
+}
+
+.avr-btn {
+  appearance: none;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.92);
+  color: rgba(15, 23, 42, 0.92);
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-weight: 850;
+  cursor: pointer;
+  box-shadow: 0 10px 18px rgba(2, 6, 23, 0.05);
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease,
+    border-color 160ms ease, background 160ms ease;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.avr-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(2, 6, 23, 0.08);
+  border-color: rgba(15, 23, 42, 0.18);
+}
+
+.avr-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 10px 18px rgba(2, 6, 23, 0.06);
+}
+
+.avr-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+
+.avr-btn--danger {
+  border-color: rgba(220, 38, 38, 0.20);
+  background: rgba(220, 38, 38, 0.08);
+  color: rgba(185, 28, 28, 0.95);
+}
+
+.avr-btn--danger:hover {
+  border-color: rgba(220, 38, 38, 0.30);
+  background: rgba(220, 38, 38, 0.12);
+}
+
+.avr-rejectBox {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.10);
+  background: rgba(255, 255, 255, 0.90);
+  box-shadow: 0 12px 26px rgba(2, 6, 23, 0.06);
+}
+
+.avr-textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.96);
+  padding: 10px 10px;
+  font-size: 14px;
+  outline: none;
+  resize: vertical;
+  margin-bottom: 10px;
+  transition: box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.avr-textarea:focus {
+  border-color: rgba(37, 99, 235, 0.35);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 980px) {
+  .avr-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 560px) {
+  .avr-title {
+    text-align: center;
+  }
+}
+

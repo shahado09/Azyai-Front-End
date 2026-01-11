@@ -1,0 +1,200 @@
+
+.clothEditPage{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 34px 18px 70px;
+}
+
+.clothEditTitle{
+  font-size: clamp(26px, 3vw, 42px);
+  margin: 6px 0 18px;
+  line-height: 1.1;
+  letter-spacing: 0.2px;
+}
+
+.clothEditLoading{
+  text-align: center;
+  padding: 40px 0;
+  opacity: 0.85;
+}
+
+.clothEditForm{
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #fff;
+  box-shadow: 0 14px 34px rgba(2, 6, 23, 0.07);
+
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 14px;
+}
+
+
+.clothEditForm > .clothEditSubTitle,
+.clothEditForm > .clothEditImagesGrid,
+.clothEditForm > .clothEditCheckboxRow,
+.clothEditForm > .clothEditButton{
+  grid-column: 1 / -1;
+}
+
+
+.clothEditLabel{
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-top: 6px;
+}
+
+
+.clothEditInput,
+.clothEditSelect{
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.16);
+  background: rgba(255, 255, 255, 0.96);
+  padding: 12px 12px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.clothEditSelect{
+  appearance: none;
+}
+
+.clothEditInput:focus,
+.clothEditSelect:focus{
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.clothEditSubTitle{
+  margin: 14px 0 6px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+
+.clothEditCheckboxRow{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px dashed rgba(15, 23, 42, 0.18);
+  background: rgba(15, 23, 42, 0.02);
+  font-weight: 750;
+}
+
+.clothEditCheckboxRow input[type="checkbox"]{
+  width: 18px;
+  height: 18px;
+  accent-color: rgba(37, 99, 235, 0.95);
+}
+
+
+.clothEditSizes{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  background: rgba(255, 255, 255, 0.92);
+  cursor: pointer;
+
+  font-weight: 750;
+  font-size: 14px;
+
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+
+.clothEditSizes:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(2, 6, 23, 0.06);
+  border-color: rgba(15, 23, 42, 0.22);
+}
+
+.clothEditSizeCheck{
+  width: 18px;
+  height: 18px;
+  accent-color: rgba(37, 99, 235, 0.95);
+}
+
+
+.clothEditImagesGrid{
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 900px){
+  .clothEditImagesGrid{ grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 520px){
+  .clothEditImagesGrid{ grid-template-columns: 1fr; }
+}
+
+.clothEditImgCard{
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 10px 22px rgba(2, 6, 23, 0.05);
+}
+
+.clothEditImg{
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+}
+
+.clothEditRemoveImgBtn{
+  width: 100%;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 850;
+  background: rgba(220, 38, 38, 0.10);
+  color: rgba(185, 28, 28, 0.95);
+  transition: background 160ms ease;
+}
+
+.clothEditRemoveImgBtn:hover{
+  background: rgba(220, 38, 38, 0.16);
+}
+
+
+.clothEditButton{
+  border: none;
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-weight: 900;
+  cursor: pointer;
+  color: white;
+
+  background-color:  rgb(84, 84, 154);
+  box-shadow: 0 16px 30px rgba(37, 99, 235, 0.16);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.clothEditButton:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 20px 38px rgba(37, 99, 235, 0.22);
+}
+
+.clothEditButton:active{
+  transform: translateY(0);
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.16);
+}
+

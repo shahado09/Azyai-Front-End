@@ -1,0 +1,192 @@
+
+.clothCreatePage{
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 34px 18px 70px;
+}
+
+.clothCreateTitle{
+  font-size: clamp(26px, 3vw, 42px);
+  margin: 6px 0 18px;
+  line-height: 1.1;
+  letter-spacing: 0.2px;
+}
+
+
+.clothCreateError{
+  margin: 12px 0 16px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(220, 38, 38, 0.35);
+  background: rgba(220, 38, 38, 0.08);
+  color: rgba(185, 28, 28, 0.95);
+  font-weight: 750;
+}
+
+
+.clothCreateForm{
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #fff;
+  box-shadow: 0 14px 34px rgba(2, 6, 23, 0.07);
+
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 14px;
+}
+
+
+.clothCreateForm > .clothCreateSubTitle,
+.clothCreateForm > .clothCreateCheckboxRow,
+.clothCreateForm > .clothCreateButton{
+  grid-column: 1 / -1;
+}
+
+
+.clothCreateLabel{
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-top: 6px;
+}
+
+
+.clothCreateLabel + .clothCreateInput,
+.clothCreateLabel + .clothCreateSelect{
+  margin-top: -4px;
+}
+
+
+.clothCreateInput,
+.clothCreateSelect,
+#stockQty{
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.16);
+  background: rgba(255, 255, 255, 0.96);
+  padding: 12px 12px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.clothCreateSelect{
+  appearance: none;
+}
+
+.clothCreateInput:focus,
+.clothCreateSelect:focus,
+#stockQty:focus{
+  border-color: rgba(37, 99, 235, 0.45);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+
+.clothCreateCheckboxRow{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px dashed rgba(15, 23, 42, 0.18);
+  background: rgba(15, 23, 42, 0.02);
+  font-weight: 750;
+}
+
+.clothCreateCheckbox{
+  width: 18px;
+  height: 18px;
+  accent-color: rgba(37, 99, 235, 0.95);
+}
+
+
+.clothCreateSubTitle{
+  margin: 14px 0 6px;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+
+.clothCreateSizes{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  background: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+
+  font-weight: 750;
+  font-size: 14px;
+
+  transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease;
+}
+
+
+.clothCreateSizes{
+  grid-column: auto; 
+}
+
+.clothCreateSizes:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 18px rgba(2, 6, 23, 0.06);
+  border-color: rgba(15, 23, 42, 0.22);
+}
+
+
+.clothCreateSizes input[type="checkbox"]{
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border-radius: 6px;
+  border: 1px solid rgba(15, 23, 42, 0.25);
+  accent-color: rgba(37, 99, 235, 0.95);
+  box-shadow: none;
+}
+
+
+.clothCreateLabel[for="images"]{
+  grid-column: 1 / -1;
+  margin-top: 10px;
+}
+
+.clothCreateLabel[for="images"] + *{
+  grid-column: 1 / -1;
+}
+
+.clothCreateButton{
+  border: none;
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-weight: 900;
+  cursor: pointer;
+  color: white;
+
+  background-color: rgb(84, 84, 154);
+  box-shadow: 0 16px 30px rgba(37, 99, 235, 0.16);
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+
+.clothCreateButton:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 20px 38px rgba(37, 99, 235, 0.22);
+}
+
+.clothCreateButton:active{
+  transform: translateY(0);
+  box-shadow: 0 14px 28px rgba(37, 99, 235, 0.16);
+}
+
+@media (max-width: 820px){
+  .clothCreateForm{
+    grid-template-columns: 1fr;
+  }
+}
