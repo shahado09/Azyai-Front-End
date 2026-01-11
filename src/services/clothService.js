@@ -1,18 +1,38 @@
 import axios from "axios";
+
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/cloth`;
 
-// allCloth 
+// My Clothes
+async function getMyClothes() {
+  try {
+    const token = localStorage.getItem("token");
+
+    const response = await axios.get(`${BASE_URL}/my`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+// allCloth
 async function getAllCloth() {
-try{
-  const response = await axios.get(BASE_URL);
-  return response.data; }
-  
-  catch(error){
-    console.log(error)}
+  try {
+    const response = await axios.get(BASE_URL);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
 }
 
 // create cloth
-const createCloth = async (formData) => {
+async function createCloth(formData) {
   try {
     const token = localStorage.getItem("token");
 
@@ -25,12 +45,12 @@ const createCloth = async (formData) => {
     return response.data.createdcloth;
   } catch (error) {
     console.log(error);
+    throw error;
   }
-};
+}
 
 // show cloth
-
-const show = async (clothId) => {
+async function show(clothId) {
   try {
     const token = localStorage.getItem("token");
 
@@ -45,9 +65,10 @@ const show = async (clothId) => {
     console.log(error);
     throw error;
   }
-};
+}
 
-const update = async (clothId, formData) => {
+// update
+async function update(clothId, formData) {
   try {
     const token = localStorage.getItem("token");
 
@@ -60,10 +81,12 @@ const update = async (clothId, formData) => {
     return response.data.updated;
   } catch (error) {
     console.log(error);
+    throw error;
   }
-};
+}
 
-const deleteOne = async (clothId) => {
+// delete
+async function deleteOne(clothId) {
   try {
     const token = localStorage.getItem("token");
 
@@ -73,9 +96,11 @@ const deleteOne = async (clothId) => {
       },
     });
 
-    return response.data.message; 
+    return response.data.message;
   } catch (error) {
     console.log(error);
+    throw error;
   }
-};
-export { getAllCloth, createCloth,show ,deleteOne, update };
+}
+
+export { getAllCloth, createCloth, show, deleteOne, update, getMyClothes,};

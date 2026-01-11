@@ -24,6 +24,7 @@ import Cart from './cartpages/CartCard.jsx';
 import MyOrders from './cartpages/MyOrders.jsx';
 import OrderCard from './components/OrderCard/OrderCard.jsx';
 
+import MyClothes from "./clothPages/MyCloth/MyClothes.jsx";
 import ClothList from './clothPages/ClothList/ClothList';
 import AddCloth from './clothPages/AddCloth/AddCloth';
 import ClothDetail from './clothPages/ClothDetail/ClothDetail';
@@ -65,6 +66,7 @@ const App = () => {
           )}
           <Route path='/' element={user ? <Dashboard /> : <Landing />} />
         <Route path="/vendor-request" element={<VendorRequest />}/>
+        <Route path="/my-clothes" element={<MyClothes />} />
         <Route path="/cloth" element={<ClothList />} />
         <Route path="/cloth/new" element={ <RequireRole allowedRoles={["vendor", "admin"]}> <AddCloth /> </RequireRole>}/>
         <Route path="/cloth/:id/edit" element={ <RequireRole allowedRoles={["vendor", "admin"]}> <ClothEdit /> </RequireRole>}/>
