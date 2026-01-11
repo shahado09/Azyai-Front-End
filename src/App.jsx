@@ -14,6 +14,8 @@ import { UserContext } from "./contexts/UserContext";
 import { useContext } from 'react';
 import {useState} from 'react';
 import RequireRole from './components/accessControl/RequireRole.jsx';
+import VendorRequest from './VendorAndAdminPages/VendorRequests.jsx';
+import AdminVendorRequests from './VendorAndAdminPages/AdminVendorRequests.jsx';
 
 import CartSummary from './components/CartSummary/CartSummary';
 import CartItem from './components/CartItem/CartItem';
@@ -62,6 +64,7 @@ const App = () => {
             />
           )}
           <Route path='/' element={user ? <Dashboard /> : <Landing />} />
+        <Route path="/vendor-request" element={<RequireRole allowedRoles={["customer"]}><VendorRequest /></RequireRole>}/>
         <Route path="/cloth" element={<ClothList />} />
         <Route path="/cloth/new" element={ <RequireRole allowedRoles={["vendor", "admin"]}> <AddCloth /> </RequireRole>}/>
         <Route path="/cloth/:id/edit" element={ <RequireRole allowedRoles={["vendor", "admin"]}> <ClothEdit /> </RequireRole>}/>
@@ -72,7 +75,8 @@ const App = () => {
         <Route path='/cart-item' element={<CartItem />} />
         <Route path='/my-orders' element={<MyOrders />} />
         <Route path='/order-card' element={<OrderCard />} />
-
+        <Route path="/admin/vendor-requests" element={ <RequireRole allowedRoles={["admin"]}> <AdminVendorRequests /> </RequireRole>}/>
+ 
         </Routes>
       </div>
     </div>

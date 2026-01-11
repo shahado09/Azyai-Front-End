@@ -32,11 +32,18 @@ const createCloth = async (formData) => {
 
 const show = async (clothId) => {
   try {
-    const response = await axios.get(`${BASE_URL}/${clothId}`);
+    const token = localStorage.getItem("token");
+
+    const response = await axios.get(`${BASE_URL}/${clothId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
     return response.data.foundCloth;
   } catch (error) {
     console.log(error);
+    throw error;
   }
 };
 
